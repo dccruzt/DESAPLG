@@ -5,4 +5,31 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <color name="m">#FFFF33</color>
+    <color name="h">#FF9933</color>
+    <color name="xh">#CC0066</color>
+    <color name="xxh">#00CC66</color>
+
+    <style name="Container">
+        <item name="android:padding">15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Ficha">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <!-- <item name="android:background">@drawable/test</item>-->
+    </style>
+
+    <style name="Boton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <!-- <item name="android:text">@string/boton_jugar</item>-->
+        <item name="android:background">@color/m</item>
+    </style>
+
 </resources>
