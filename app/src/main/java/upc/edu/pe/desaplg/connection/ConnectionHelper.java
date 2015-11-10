@@ -1,5 +1,7 @@
 package upc.edu.pe.desaplg.connection;
 
+import android.content.Context;
+
 import com.connectsdk.device.ConnectableDevice;
 import com.connectsdk.discovery.DiscoveryManager;
 import com.connectsdk.service.WebOSTVService;
@@ -15,4 +17,6 @@ public class ConnectionHelper {
     public static WebOSTVService webOSTVService;
     public static WebAppSession webAppSession;
     public static DesaplgListener desaplgListener;
+
+    public static Context context;
 }
