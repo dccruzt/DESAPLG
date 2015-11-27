@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Colores utilizados en la aplicación -->
+    <color name="white">#FFF</color>
+
     <style name="Container">
         <item name="android:padding">50dp</item>
         <item name="android:layout_width">match_parent</item>
@@ -8,6 +11,40 @@
         <item name="android:orientation">vertical</item>
     </style>
 
+    <!-- CONEXION - Logo -->
+    <style name="logo">
+        <item name="android:background">@drawable/logo_400</item>
+    </style>
+
+    <!-- CONEXION - Texto para seleccionar webOS -->
+    <style name="texto_conexion">
+        <item name="android:layout_marginTop">60dp</item>
+    </style>
+
+    <!-- CONEXION - Barra donde aparecen los webOS conectados -->
+    <style name="barra_webos">
+        <item name="android:layout_height">45dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">100dp</item>
+        <item name="android:layout_marginRight">100dp</item>
+    </style>
+
+    <!-- INICIO - logo -->
+    <style name="logo_inicio">
+        <item name="android:background">@drawable/logo_inicio_70</item>
+    </style>
+
+    <!-- INICIO - Avatar hombre -->
+    <style name="avatar_h">
+        <item name="android:background">@drawable/avatar_h_200</item>
+    </style>
+
+    <!-- INICIO - Avatar mujer -->
+    <style name="avatar_m">
+        <item name="android:background">@drawable/avatar_m_200</item>
+    </style>
+
+    <!-- JUEGO - Fichas -->
     <style name="Ficha">
         <item name="android:layout_width">180dp</item>
         <item name="android:layout_height">180dp</item>
@@ -15,12 +52,13 @@
         <!--<item name="android:background">@drawable/test_720</item>-->
     </style>
 
+    <!-- JUEGO - Botones -->
     <style name="Boton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center_vertical</item>
         <!--<item name="android:text">@string/boton_jugar</item>-->
-        <item name="android:background">@color/xh</item>
+        <item name="android:background">@color/white</item>
     </style>
 
 </resources>

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.connectsdk.device.ConnectableDevice;
 
 import upc.edu.pe.desaplg.R;
+import upc.edu.pe.desaplg.helpers.FontHelper;
 
 public class TVAdapter extends BaseAdapter {
 
@@ -49,6 +50,7 @@ public class TVAdapter extends BaseAdapter {
 
         ConnectableDevice device = (ConnectableDevice) adapter.getItem(position);
         TextView lblNombreTV = (TextView)v.findViewById(R.id.itemTV);
+        FontHelper.setFont(activity.getApplicationContext(), FontHelper.DOSIS_BOLD, lblNombreTV);
         lblNombreTV.setText(device.getFriendlyName());
         return v;
     }

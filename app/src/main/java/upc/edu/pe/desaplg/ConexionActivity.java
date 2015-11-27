@@ -1,13 +1,19 @@
 package upc.edu.pe.desaplg;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.content.res.AssetManager;
 import android.database.DataSetObserver;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.connectsdk.device.ConnectableDevice;
 import com.connectsdk.device.DevicePicker;
@@ -18,18 +24,24 @@ import com.connectsdk.service.command.ServiceCommandError;
 import com.connectsdk.service.sessions.WebAppSession;
 
 import java.sql.Connection;
+import java.util.Locale;
 
 import upc.edu.pe.desaplg.adapter.TVAdapter;
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
 import upc.edu.pe.desaplg.connection.DesaplgListener;
 import upc.edu.pe.desaplg.connection.JsonHelper;
+import upc.edu.pe.desaplg.helpers.FontHelper;
 
 public class ConexionActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState)        ;
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_conexion);
+
+        TextView lblConexion = (TextView)findViewById(R.id.txtConexion);
+        FontHelper.setFont(this.getApplicationContext(), FontHelper.DOSIS_EXTRABOLD, lblConexion);
 
         getTVList();
     }
@@ -69,12 +81,17 @@ public class ConexionActivity extends Activity {
 
                                 }
                             });
-
                         }
                     });
 
-                }catch(Exception e){
+                    Intent i = new Intent(ConexionActivity.this, InicioActivity.class);
+                    i.putExtra("mensaje", "Conectando dispositivo...");
+                    startActivity(i);
 
+                }catch(Exception ex){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                    builder.setTitle("Tie a word");
+                    builder.setMessage("No se pudo conectar a la TV. Verifica que se encuentre encendida y vuele a iniciar Tie a word.");
                 }
             }
         });

@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+    style="@style/Container"
+    android:background="@drawable/fondo_conexion">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/imgLogo"
+        style="@style/logo"/>
+
+        />
+
+
+    <TextView
+        style="@style/texto_conexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:id="@+id/txtConexion"
+        android:text="@string/seleccion_webOS"
+        android:layout_gravity="center_horizontal"
+        android:editable="false"
+        android:textIsSelectable="false"
+        android:textColor="@color/white" />
 
     <ListView
+        style="@style/barra_webos"
         android:id="@+id/listTV"
-        android:layout_width="match_parent"
-        android:layout_height="367dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="280dp"
-        android:layout_marginRight="280dp"
+        android:background="@drawable/btn_webos"
+        android:layout_width="wrap_content"
         android:listSelector="@android:color/transparent"
         android:cacheColorHint="@android:color/transparent"
         android:divider="@android:color/transparent"
         android:dividerHeight="12sp">
-
     </ListView>
-
-    <ImageView
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.18"
-        android:src="@mipmap/ic_launcher" />
 
 </LinearLayout>
