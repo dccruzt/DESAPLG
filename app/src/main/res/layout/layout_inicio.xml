@@ -7,7 +7,7 @@
     android:background="@drawable/fondo_inicio">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="1">
@@ -19,9 +19,8 @@
             android:id="@+id/imgLogoInicio" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="@string/bienvenida"
             android:id="@+id/lblBienvenida"
             android:gravity="center"
@@ -37,7 +36,6 @@
         android:layout_weight="1">
 
         <ImageView
-            style="@style/avatar_h"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imgAvatar_h"
@@ -45,10 +43,10 @@
             android:layout_gravity="center_horizontal" />
 
         <ImageView
-            style="@style/avatar_m"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imgAvatar_m"
+            android:background="@drawable/avatar_mujer_1"
             android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
@@ -59,6 +57,9 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_weight="1">
+
+
+
     </LinearLayout>
 
 
