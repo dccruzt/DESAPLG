@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:background="@drawable/fondo_inicio">
+    android:background="@drawable/fondo_inicio"
+    android:padding="20dp" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,52 +13,71 @@
         android:layout_weight="1">
 
         <ImageView
-            style="@style/logo_inicio"
+            android:id="@+id/imgLogoInicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imgLogoInicio" />
+            android:background="@drawable/logo_inicio"
+            android:padding="30dp"/>
 
         <TextView
+            style="@style/label_bienvenida"
+            android:id="@+id/lblBienvenida"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/bienvenida"
-            android:id="@+id/lblBienvenida"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:textColor="@color/white" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_weight="1">
 
         <ImageView
+            android:id="@+id/imgAvatarHombre1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imgAvatar_h"
             android:background="@drawable/avatar_hombre_1"
-            android:layout_gravity="center_horizontal" />
+            android:layout_marginRight="35dp"/>
 
         <ImageView
+            android:id="@+id/imgAvatarMujer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imgAvatar_m"
-            android:background="@drawable/avatar_mujer_1"
-            android:layout_gravity="center_horizontal" />
+            android:background="@drawable/avatar_mujer_1" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
         android:layout_weight="1">
 
+        <EditText
+            android:id="@+id/txtConectar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/txt_nombre"
+            android:inputType="textPersonName"
+            android:hint="@string/textbox_conectar"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#989898"
+            android:textColorHint="#989898"
+            android:ems="12" />
 
+        <Button
+            android:id="@+id/btnConectar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_conectar"
+            android:text="@string/boton_conectar"
+            android:textColor="#522F18" />
 
     </LinearLayout>
 

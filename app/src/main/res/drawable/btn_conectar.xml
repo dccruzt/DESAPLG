@@ -1,0 +1,8 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_pressed="false">
+        <bitmap android:src="@drawable/boton_conectar"/>
+    </item>
+    <item android:state_pressed="true">
+        <bitmap android:src="@drawable/boton_conectar_sel"/>
+    </item>
+</selector>

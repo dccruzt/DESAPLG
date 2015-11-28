@@ -5,4 +5,6 @@
     <string name="action_settings">Settings</string>
     <string name="seleccion_webOS">SELECCIONAR webOS TV</string>
     <string name="bienvenida">BIENVENIDO A TIE-A-WORD COLOCA TU NOMBRE PARA INGRESAR</string>
+    <string name="boton_conectar">CONECTAR</string>
+    <string name="textbox_conectar">NOMBRE JUGADOR</string>
 </resources>

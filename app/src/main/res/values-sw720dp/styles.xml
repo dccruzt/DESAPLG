@@ -35,14 +35,13 @@
     </style>
 
     <!-- INICIO - Avatar hombre -->
-    <style name="avatar_h">
-        <item name="android:background">@drawable/avatar_h_200</item>
+    <style name="label_bienvenida">
+        <item name="android:textSize">40dp</item>
     </style>
 
+    <!-- INICIO - Avatar hombre -->
+
     <!-- INICIO - Avatar mujer -->
-    <style name="avatar_m">
-        <item name="android:background">@drawable/avatar_m_200</item>
-    </style>
 
     <!-- JUEGO - Fichas -->
     <style name="Ficha">

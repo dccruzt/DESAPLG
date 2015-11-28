@@ -39,14 +39,8 @@
     </style>
 
     <!-- INICIO - Avatar hombre -->
-    <style name="avatar_h">
-        <item name="android:background">@drawable/avatar_h_100</item>
-    </style>
 
     <!-- INICIO - Avatar mujer -->
-    <style name="avatar_m">
-        <item name="android:background">@drawable/avatar_m_100</item>
-    </style>
 
     <!-- JUEGO - Fichas -->
     <style name="Ficha">

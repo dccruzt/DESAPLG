@@ -13,7 +13,7 @@
 
     <!-- CONEXION - Logo -->
     <style name="logo">
-        <item name="android:background">@drawable/logo_400</item>
+        <item name="android:background">@drawable/logo_200</item>
     </style>
 
     <!-- CONEXION - Texto para seleccionar webOS -->
@@ -35,14 +35,11 @@
     </style>
 
     <!-- INICIO - Avatar hombre -->
-    <style name="avatar_h">
-        <item name="android:background">@drawable/avatar_h_150</item>
+    <style name="label_bienvenida">
+        <item name="android:textSize">30dp</item>
     </style>
 
     <!-- INICIO - Avatar mujer -->
-    <style name="avatar_m">
-        <item name="android:background">@drawable/avatar_m_150</item>
-    </style>
 
     <!-- JUEGO - Fichas -->
     <style name="Ficha">
