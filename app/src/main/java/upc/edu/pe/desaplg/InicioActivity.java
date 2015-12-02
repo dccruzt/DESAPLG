@@ -1,13 +1,24 @@
 package upc.edu.pe.desaplg;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Button;
+
+import com.connectsdk.service.capability.listeners.ResponseListener;
+import com.connectsdk.service.command.ServiceCommandError;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import upc.edu.pe.desaplg.helpers.FontHelper;
+
+import upc.edu.pe.desaplg.connection.ConnectionHelper;
 
 /**
  * Created by Daniela on 23/10/2015.
@@ -29,5 +40,36 @@ public class InicioActivity extends Activity{
 
         Button btnConectar = (Button)findViewById(R.id.btnConectar);
         FontHelper.setFont(this.getApplicationContext(), FontHelper.DOSIS_EXTRABOLD, btnConectar);
+    }
+
+    public void conectar(View v){
+
+        ConnectionHelper.webAppSession.sendMessage(new JSONObject() {
+            {
+                try{
+                    EditText nombreJugador = (EditText) findViewById(R.id.txtConectar);
+                    put("accion", "enviarNombres");
+                    put("jugador",  nombreJugador.getText());
+                    put("avatar", "Avatar_Hombre_1");
+                }
+                catch (JSONException ex){
+                }
+            }
+        }, new ResponseListener<Object>() {
+            @Override
+            public void onSuccess(Object o) {
+                EditText nombreJugador = (EditText) findViewById(R.id.txtConectar);
+                nombreJugador.setText("");
+                Context context = getApplicationContext();
+                Toast toast = Toast.makeText(context, "Conectado", 3);
+                toast.show();
+            }
+
+            @Override
+            public void onError(ServiceCommandError serviceCommandError) {
+
+            }
+        });
+
     }
 }

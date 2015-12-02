@@ -75,6 +75,7 @@
             android:id="@+id/btnConectar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="conectar"
             android:background="@drawable/btn_conectar"
             android:text="@string/boton_conectar"
             android:textColor="#522F18" />

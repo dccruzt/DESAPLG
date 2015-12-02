@@ -22,6 +22,7 @@ import com.connectsdk.service.WebOSTVService;
 import com.connectsdk.service.capability.listeners.ResponseListener;
 import com.connectsdk.service.command.ServiceCommandError;
 import com.connectsdk.service.sessions.WebAppSession;
+import com.connectsdk.service.sessions.WebAppSessionListener;
 
 import java.sql.Connection;
 import java.util.Locale;
@@ -42,6 +43,8 @@ public class ConexionActivity extends Activity {
 
         TextView lblConexion = (TextView)findViewById(R.id.txtConexion);
         FontHelper.setFont(this.getApplicationContext(), FontHelper.DOSIS_EXTRABOLD, lblConexion);
+
+        ConnectionHelper.desaplgListener.setConexionActivity(this);
 
         getTVList();
     }
@@ -100,7 +103,6 @@ public class ConexionActivity extends Activity {
     public void ConectarJugadorATV(){
 
         ConnectionHelper.webAppSession.setWebAppSessionListener(ConnectionHelper.desaplgListener);
-        int a;
         ConnectionHelper.webAppSession.sendMessage(JsonHelper.ConectarTV(), new ResponseListener<Object>() {
             @Override
             public void onSuccess(Object o) {
