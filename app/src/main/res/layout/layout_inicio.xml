@@ -38,28 +38,28 @@
         android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/btnAvatar1"
+            android:id="@+id/Avatar_Hombre_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cambiarImagen"
             android:background="@drawable/btn_avatar_h1" />
 
         <ImageButton
-            android:id="@+id/btnAvatar2"
+            android:id="@+id/Avatar_Mujer_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cambiarImagen"
             android:background="@drawable/btn_avatar_m1" />
 
         <ImageButton
-            android:id="@+id/btnAvatar3"
+            android:id="@+id/Avatar_Hombre_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cambiarImagen"
             android:background="@drawable/btn_avatar_h2" />
 
         <ImageButton
-            android:id="@+id/btnAvatar4"
+            android:id="@+id/Avatar_Mujer_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cambiarImagen"

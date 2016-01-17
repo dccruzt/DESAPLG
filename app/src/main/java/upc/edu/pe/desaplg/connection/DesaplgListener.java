@@ -23,7 +23,6 @@ public class DesaplgListener implements WebAppSessionListener {
 
     @Override
     public void onReceiveMessage(WebAppSession webAppSession, Object o) {
-
     }
 
     @Override

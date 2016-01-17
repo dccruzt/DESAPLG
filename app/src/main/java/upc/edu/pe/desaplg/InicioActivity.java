@@ -17,6 +17,8 @@ import com.connectsdk.service.command.ServiceCommandError;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Field;
+
 import upc.edu.pe.desaplg.helpers.FontHelper;
 
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
@@ -26,6 +28,7 @@ import upc.edu.pe.desaplg.connection.ConnectionHelper;
  */
 public class InicioActivity extends Activity{
 
+    String nombreAvatar = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -47,8 +50,8 @@ public class InicioActivity extends Activity{
 
         EditText txtConectar = (EditText)findViewById(R.id.txtConectar);
 
-        if(txtConectar.getText().toString().trim().length() == 0) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Debe ingresar un nombre para conectarse", 2);
+        if(txtConectar.getText().toString().trim().length() == 0 || nombreAvatar.trim().length() == 0) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Debe ingresar un nombre y elegir un avatar para conectarse", 2);
             toast.show();
         }
         else {
@@ -58,7 +61,7 @@ public class InicioActivity extends Activity{
                         EditText nombreJugador = (EditText) findViewById(R.id.txtConectar);
                         put("accion", "enviarNombres");
                         put("jugador", nombreJugador.getText());
-                        put("avatar", "Avatar_Hombre_1");
+                        put("avatar", nombreAvatar);
                     } catch (JSONException ex) {
                     }
                 }
@@ -68,10 +71,9 @@ public class InicioActivity extends Activity{
                     EditText nombreJugador = (EditText) findViewById(R.id.txtConectar);
                     nombreJugador.setText("");
                     Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "Conectado", 3);
+                    Toast toast = Toast.makeText(context, "Conectado", 2);
                     toast.show();
                 }
-
                 @Override
                 public void onError(ServiceCommandError serviceCommandError) {
                 }
@@ -80,7 +82,31 @@ public class InicioActivity extends Activity{
     }
 
     public void cambiarImagen(View image) {
+        findViewById(R.id.Avatar_Hombre_1).setSelected(false);
+        findViewById(R.id.Avatar_Hombre_2).setSelected(false);
+        findViewById(R.id.Avatar_Mujer_1).setSelected(false);
+        findViewById(R.id.Avatar_Mujer_2).setSelected(false);
+        image.setSelected(true);
+        try {
+            nombreAvatar = getIDName(image, R.id.class).trim();
+        }catch(Exception ex){
+        }
 
-        image.setSelected(!image.isSelected());
+    }
+
+    public static String getIDName(View view, Class<?> clazz) throws Exception {
+
+        Integer id = view.getId();
+        Field[] ids = clazz.getFields();
+        for (int i = 0; i < ids.length; i++) {
+            Object val = ids[i].get(null);
+            if (val != null && val instanceof Integer
+                    && ((Integer) val).intValue() == id.intValue()) {
+                return ids[i].getName();
+            }
+        }
+
+        return "";
+
     }
 }
