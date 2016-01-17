@@ -39,6 +39,9 @@
     </style>
 
     <!-- INICIO - Avatar hombre -->
+    <style name="label_bienvenida">
+        <item name="android:textSize">30dp</item>
+    </style>
 
     <!-- INICIO - Avatar mujer -->
 

@@ -37,18 +37,33 @@
         android:gravity="center"
         android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/imgAvatarHombre1"
+        <ImageButton
+            android:id="@+id/btnAvatar1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/avatar_hombre_1"
-            android:layout_marginRight="35dp"/>
+            android:onClick="cambiarImagen"
+            android:background="@drawable/btn_avatar_h1" />
 
-        <ImageView
-            android:id="@+id/imgAvatarMujer1"
+        <ImageButton
+            android:id="@+id/btnAvatar2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/avatar_mujer_1" />
+            android:onClick="cambiarImagen"
+            android:background="@drawable/btn_avatar_m1" />
+
+        <ImageButton
+            android:id="@+id/btnAvatar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cambiarImagen"
+            android:background="@drawable/btn_avatar_h2" />
+
+        <ImageButton
+            android:id="@+id/btnAvatar4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cambiarImagen"
+            android:background="@drawable/btn_avatar_m2" />
 
     </LinearLayout>
 
@@ -69,7 +84,8 @@
             android:layout_gravity="center_horizontal"
             android:textColor="#989898"
             android:textColorHint="#989898"
-            android:ems="12" />
+            android:maxLength="15"
+            android:ems="10" />
 
         <Button
             android:id="@+id/btnConectar"
@@ -81,6 +97,5 @@
             android:textColor="#522F18" />
 
     </LinearLayout>
-
 
 </LinearLayout>
