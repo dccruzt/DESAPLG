@@ -61,7 +61,7 @@ public class InicioActivity extends Activity{
                         EditText nombreJugador = (EditText) findViewById(R.id.txtConectar);
                         put("accion", "enviarNombres");
                         put("jugador", nombreJugador.getText());
-                        put("avatar", nombreAvatar);
+                        put("avatar", nombreAvatar); 
                     } catch (JSONException ex) {
                     }
                 }
