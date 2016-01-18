@@ -19,6 +19,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 
+import upc.edu.pe.desaplg.connection.JsonHelper;
 import upc.edu.pe.desaplg.helpers.FontHelper;
 
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
@@ -48,27 +49,18 @@ public class InicioActivity extends Activity{
 
     public void conectar(View v){
 
-        EditText txtConectar = (EditText)findViewById(R.id.txtConectar);
+        final EditText nombreJugador = (EditText)findViewById(R.id.txtConectar);
 
-        if(txtConectar.getText().toString().trim().length() == 0 || nombreAvatar.trim().length() == 0) {
+        if(nombreJugador.getText().toString().trim().length() == 0 || nombreAvatar.trim().length() == 0) {
             Toast toast = Toast.makeText(getApplicationContext(), "Debe ingresar un nombre y elegir un avatar para conectarse", 2);
             toast.show();
         }
         else {
-            ConnectionHelper.webAppSession.sendMessage(new JSONObject() {
-                {
-                    try {
-                        EditText nombreJugador = (EditText) findViewById(R.id.txtConectar);
-                        put("accion", "enviarNombres");
-                        put("jugador", nombreJugador.getText());
-                        put("avatar", nombreAvatar); 
-                    } catch (JSONException ex) {
-                    }
-                }
-            }, new ResponseListener<Object>() {
+            ConnectionHelper.webAppSession.sendMessage(JsonHelper.ConectarJugador(nombreJugador.getText().toString(), nombreAvatar),
+                    new ResponseListener<Object>() {
                 @Override
                 public void onSuccess(Object o) {
-                    EditText nombreJugador = (EditText) findViewById(R.id.txtConectar);
+
                     nombreJugador.setText("");
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "Conectado", 2);
@@ -91,7 +83,6 @@ public class InicioActivity extends Activity{
             nombreAvatar = getIDName(image, R.id.class).trim();
         }catch(Exception ex){
         }
-
     }
 
     public static String getIDName(View view, Class<?> clazz) throws Exception {
@@ -105,7 +96,6 @@ public class InicioActivity extends Activity{
                 return ids[i].getName();
             }
         }
-
         return "";
 
     }
