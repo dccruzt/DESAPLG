@@ -7,4 +7,5 @@
     <string name="bienvenida">BIENVENIDO A TIE-A-WORD\r\nCOLOCA TU NOMBRE PARA INGRESAR</string>
     <string name="boton_conectar">CONECTAR</string>
     <string name="textbox_conectar">NOMBRE JUGADOR</string>
+    <string name="inicio">, SI DESEAS EMPEZAR EL JUEGO\r\nPRESIONA JUGAR</string>
 </resources>

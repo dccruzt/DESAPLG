@@ -2,6 +2,7 @@ package upc.edu.pe.desaplg;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -65,6 +66,9 @@ public class InicioActivity extends Activity{
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "Conectado", 2);
                     toast.show();
+
+                    Intent i = new Intent(InicioActivity.this, InicioJuegoActivity.class);
+                    startActivity(i);
                 }
                 @Override
                 public void onError(ServiceCommandError serviceCommandError) {

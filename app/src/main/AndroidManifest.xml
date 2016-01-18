@@ -17,10 +17,12 @@
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="landscape">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
 
         <activity
@@ -31,11 +33,11 @@
         <activity
             android:name=".InicioActivity"
             android:screenOrientation="landscape">
+        </activity>
 
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
+        <activity
+            android:name=".InicioJuegoActivity"
+            android:screenOrientation="landscape">
         </activity>
 
         <meta-data
