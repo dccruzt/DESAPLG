@@ -38,6 +38,8 @@ public class SplashActivity extends Activity {
             }
         };
 
+        ConnectionHelper.desaplgListener.setSplashActivity(this);
+
         new Timer().schedule(task, 5000);
     }
 }

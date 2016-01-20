@@ -21,5 +21,9 @@ public class InicioJuegoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_iniciojuego);
+
+        ConnectionHelper.desaplgListener.setInicioJuegoActivity(this);
     }
+
+    DesaplgListener desaplgListener = new DesaplgListener();
 }
