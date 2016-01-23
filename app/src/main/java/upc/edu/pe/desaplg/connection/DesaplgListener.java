@@ -1,5 +1,7 @@
 package upc.edu.pe.desaplg.connection;
 
+import android.widget.ImageButton;
+
 import com.connectsdk.service.sessions.WebAppSession;
 import com.connectsdk.service.sessions.WebAppSessionListener;
 
@@ -8,8 +10,10 @@ import upc.edu.pe.desaplg.CreditosActivity;
 import upc.edu.pe.desaplg.InicioActivity;
 import upc.edu.pe.desaplg.InicioJuegoActivity;
 import upc.edu.pe.desaplg.JuegoActivity;
+import upc.edu.pe.desaplg.R;
 import upc.edu.pe.desaplg.SplashActivity;
 import upc.edu.pe.desaplg.helpers.StringsHelper;
+import android.view.View;
 
 /**
  * Created by Daniela on 23/10/2015.
@@ -87,6 +91,6 @@ public class DesaplgListener implements WebAppSessionListener {
     }
 
     public void activaBotonIniciar(){
-        //findViewById();
+        inicioJuegoActivity.ActivarBotonIniciar();
     }
 }

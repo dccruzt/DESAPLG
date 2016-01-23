@@ -43,4 +43,19 @@ public class JsonHelper {
             return null;
         }
     }
+
+    public static JSONObject EmpezarJuego(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.EMPEZAR_JUEGO);
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
 }
