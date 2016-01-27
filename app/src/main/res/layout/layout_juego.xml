@@ -36,14 +36,14 @@
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:id="@+id/ficha"
-                    android:background="@drawable/A" />
+                    android:background="@drawable/letra_a" />
 
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="50dp"
                     android:id="@+id/ficha2"
-                    android:background="@drawable/A" />
+                    android:background="@drawable/letra_a" />
 
                 <ImageView
                     style="@style/Ficha"
