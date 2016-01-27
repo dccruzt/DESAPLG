@@ -17,5 +17,6 @@ public class StringsHelper {
     //Acciones recibidas
     public static String NO_PUEDE_INICIAR = "noPuedeIniciar";
     public static String PUEDE_INICIAR = "puedeIniciar";
+    public static String CARGAR_FICHAS = "cargarFichas";
 
 }

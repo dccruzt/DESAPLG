@@ -1,5 +1,6 @@
 package upc.edu.pe.desaplg.connection;
 
+import android.content.Intent;
 import android.widget.ImageButton;
 
 import com.connectsdk.service.sessions.WebAppSession;
@@ -23,6 +24,9 @@ public class DesaplgListener implements WebAppSessionListener {
     private ConexionActivity conexionActivity;
     private CreditosActivity creditosActivity;
     private InicioActivity inicioActivity;
+    private InicioJuegoActivity inicioJuegoActivity;
+    private JuegoActivity juegoActivity;
+    private SplashActivity splashActivity;
 
     public CreditosActivity getCreditosActivity() {
         return creditosActivity;
@@ -64,10 +68,6 @@ public class DesaplgListener implements WebAppSessionListener {
         this.splashActivity = splashActivity;
     }
 
-    private InicioJuegoActivity inicioJuegoActivity;
-    private JuegoActivity juegoActivity;
-    private SplashActivity splashActivity;
-
     public ConexionActivity getConexionActivity() {
         return conexionActivity;
     }
@@ -83,6 +83,9 @@ public class DesaplgListener implements WebAppSessionListener {
         if(o.equals(StringsHelper.PUEDE_INICIAR))
             activaBotonIniciar();
 
+        else if(o.equals(StringsHelper.CARGAR_FICHAS))
+            activaBotonIniciar();
+
     }
 
     @Override
@@ -91,6 +94,14 @@ public class DesaplgListener implements WebAppSessionListener {
     }
 
     public void activaBotonIniciar(){
+
         inicioJuegoActivity.ActivarBotonIniciar();
+    }
+
+    public void cargarFichas(){
+
+        Intent i = new Intent(juegoActivity, InicioJuegoActivity.class);
+        //i.putExtra("turno", turno);
+        juegoActivity.startActivity(i);
     }
 }

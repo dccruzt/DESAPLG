@@ -58,4 +58,19 @@ public class JsonHelper {
             return null;
         }
     }
+
+    public static JSONObject CargarFichas(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.CARGAR_FICHAS);
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
 }
