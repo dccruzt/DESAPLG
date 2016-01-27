@@ -84,7 +84,7 @@ public class DesaplgListener implements WebAppSessionListener {
             activaBotonIniciar();
 
         else if(o.equals(StringsHelper.CARGAR_FICHAS))
-            activaBotonIniciar();
+            cargarFichas();
 
     }
 
@@ -100,8 +100,6 @@ public class DesaplgListener implements WebAppSessionListener {
 
     public void cargarFichas(){
 
-        Intent i = new Intent(juegoActivity, InicioJuegoActivity.class);
-        //i.putExtra("turno", turno);
-        juegoActivity.startActivity(i);
+        inicioJuegoActivity.CargarFichas();
     }
 }

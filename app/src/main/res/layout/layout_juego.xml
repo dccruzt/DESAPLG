@@ -34,23 +34,29 @@
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginLeft="50dp"
+                    android:layout_margin="30dp"
                     android:id="@+id/ficha"
                     android:background="@drawable/letra_a" />
 
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_marginLeft="50dp"
+                    android:layout_margin="30dp"
                     android:id="@+id/ficha2"
                     android:background="@drawable/letra_a" />
 
                 <ImageView
-                    style="@style/Ficha"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/letra_a"
                     android:id="@+id/ficha3" />
 
                 <ImageView
-                    style="@style/Ficha"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/letra_a"
                     android:id="@+id/ficha4" />
 
             </LinearLayout>
@@ -61,19 +67,31 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    style="@style/Ficha"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/letra_a"
                     android:id="@+id/ficha5" />
 
                 <ImageView
-                    style="@style/Ficha"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/letra_a"
                     android:id="@+id/ficha6" />
 
                 <ImageView
-                    style="@style/Ficha"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/letra_a"
                     android:id="@+id/ficha7" />
 
                 <ImageView
-                    style="@style/Ficha"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="30dp"
+                    android:background="@drawable/letra_a"
                     android:id="@+id/ficha8" />
 
             </LinearLayout>
