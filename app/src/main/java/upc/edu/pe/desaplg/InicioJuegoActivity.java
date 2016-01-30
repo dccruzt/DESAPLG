@@ -37,7 +37,7 @@ public class InicioJuegoActivity extends Activity {
         findViewById(R.id.btnJugar).setEnabled(StatusHelper.btnJugar_activo);
 
         DesaplgTextView lblInicio = (DesaplgTextView)findViewById(R.id.lblInicio);
-        lblInicio.setText(StatusHelper.nombreJugador);
+        lblInicio.setText(StatusHelper.nombreJugador + getResources().getString(R.string.inicio));
     }
 
     public void ActivarBotonIniciar(){

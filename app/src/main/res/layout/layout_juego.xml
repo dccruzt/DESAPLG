@@ -137,8 +137,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:id="@+id/letra_ficha4"
-                        android:textSize="50sp" />
+                        android:id="@+id/letra_ficha4" />
 
                     <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
                         style="@style/puntaje_ficha"

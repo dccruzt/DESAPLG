@@ -65,12 +65,13 @@ public class InicioActivity extends Activity{
                 @Override
                 public void onSuccess(Object o) {
 
-                    nombreJugador.setText("");
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "Conectado", 2);
                     toast.show();
 
                     StatusHelper.nombreJugador = nombreJugador.getText().toString();
+                    nombreJugador.setText("");
+
                     Intent i = new Intent(InicioActivity.this, InicioJuegoActivity.class);
                     startActivity(i);
                 }
