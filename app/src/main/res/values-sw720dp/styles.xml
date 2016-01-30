@@ -45,20 +45,24 @@
     <!-- INICIO - Avatar mujer -->
 
     <!-- JUEGO LAYOUT -->
+    <style name="categoria">
+        <item name="android:textSize">40dp</item>
+    </style>
+
     <style name="ficha">
         <item name="android:layout_marginRight">20dp</item>
     </style>
 
     <style name="letra_ficha">
-        <item name="android:textSize">50sp</item>
-        <item name="android:paddingRight">50dp</item>
-        <item name="android:paddingBottom">50dp</item>
+        <item name="android:textSize">70sp</item>
+        <item name="android:paddingRight">27dp</item>
+        <item name="android:paddingBottom">22dp</item>
     </style>
 
     <style name="puntaje_ficha">
         <item name="android:textSize">20sp</item>
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">50dp</item>
+        <item name="android:paddingTop">35dp</item>
     </style>
 
 </resources>

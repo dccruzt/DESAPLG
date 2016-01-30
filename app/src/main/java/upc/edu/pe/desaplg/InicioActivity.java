@@ -24,6 +24,7 @@ import upc.edu.pe.desaplg.connection.JsonHelper;
 import upc.edu.pe.desaplg.helpers.FontHelper;
 
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
+import upc.edu.pe.desaplg.helpers.StatusHelper;
 
 /**
  * Created by Daniela on 23/10/2015.
@@ -69,6 +70,7 @@ public class InicioActivity extends Activity{
                     Toast toast = Toast.makeText(context, "Conectado", 2);
                     toast.show();
 
+                    StatusHelper.nombreJugador = nombreJugador.getText().toString();
                     Intent i = new Intent(InicioActivity.this, InicioJuegoActivity.class);
                     startActivity(i);
                 }

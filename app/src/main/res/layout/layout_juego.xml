@@ -12,11 +12,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/categoria"
             android:background="@drawable/categoria"/>
+
         <upc.edu.pe.desaplg.view.DesaplgTextView
+            style="@style/categoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text=""/>
+            android:id="@+id/nombreJugador" />
 
     </RelativeLayout>
 
@@ -49,17 +51,15 @@
                         android:background="@drawable/letra"
                         android:id="@+id/ficha1" />
 
-                    <upc.edu.pe.desaplg.view.DesaplgTextView
+                    <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
                         style="@style/letra_ficha"
-                        android:text="A"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:id="@+id/letra_ficha1" />
 
-                    <upc.edu.pe.desaplg.view.DesaplgTextView
+                    <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
                         style="@style/puntaje_ficha"
-                        android:text="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
@@ -79,10 +79,18 @@
                         android:id="@+id/ficha2" />
 
                     <upc.edu.pe.desaplg.view.DesaplgTextView
+                        style="@style/letra_ficha"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:id="@+id/letra_ficha2" />
+
+                    <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
+                        style="@style/puntaje_ficha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/puntaje_ficha2" />
 
                 </RelativeLayout>
 
@@ -98,10 +106,18 @@
                         android:id="@+id/ficha3" />
 
                     <upc.edu.pe.desaplg.view.DesaplgTextView
+                        style="@style/letra_ficha"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:id="@+id/letra_ficha3" />
+
+                    <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
+                        style="@style/puntaje_ficha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/puntaje_ficha3" />
 
                 </RelativeLayout>
 
@@ -117,11 +133,19 @@
                         android:id="@+id/ficha4" />
 
                     <upc.edu.pe.desaplg.view.DesaplgTextView
+                        style="@style/letra_ficha"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:id="@+id/letra_ficha4"
                         android:textSize="50sp" />
+
+                    <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
+                        style="@style/puntaje_ficha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/puntaje_ficha4" />
 
                 </RelativeLayout>
 
@@ -146,10 +170,18 @@
                         android:id="@+id/ficha5" />
 
                     <upc.edu.pe.desaplg.view.DesaplgTextView
+                        style="@style/letra_ficha"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:id="@+id/letra_ficha5" />
+
+                    <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
+                        style="@style/puntaje_ficha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/puntaje_ficha5" />
 
                 </RelativeLayout>
 
@@ -165,10 +197,18 @@
                         android:id="@+id/ficha6" />
 
                     <upc.edu.pe.desaplg.view.DesaplgTextView
+                        style="@style/letra_ficha"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:id="@+id/letra_ficha6" />
+
+                    <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
+                        style="@style/puntaje_ficha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/puntaje_ficha6" />
 
                 </RelativeLayout>
 
@@ -184,10 +224,18 @@
                         android:id="@+id/ficha7" />
 
                     <upc.edu.pe.desaplg.view.DesaplgTextView
+                        style="@style/letra_ficha"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:id="@+id/letra_ficha7" />
+
+                    <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
+                        style="@style/puntaje_ficha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/puntaje_ficha7" />
 
                 </RelativeLayout>
 
@@ -203,10 +251,18 @@
                         android:id="@+id/ficha8" />
 
                     <upc.edu.pe.desaplg.view.DesaplgTextView
+                        style="@style/letra_ficha"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:id="@+id/letra_ficha8" />
+
+                    <upc.edu.pe.desaplg.view.DesaplgTextViewExtra
+                        style="@style/puntaje_ficha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/puntaje_ficha8" />
 
                 </RelativeLayout>
 

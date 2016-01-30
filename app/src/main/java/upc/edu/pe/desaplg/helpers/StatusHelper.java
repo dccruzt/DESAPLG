@@ -8,5 +8,6 @@ import org.json.JSONArray;
 public class StatusHelper {
 
     public static JSONArray fichas;
+    public static String nombreJugador;
     public static boolean btnJugar_activo = false;
 }

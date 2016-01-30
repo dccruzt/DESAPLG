@@ -5,11 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.connectsdk.discovery.DiscoveryManager;
 import com.connectsdk.service.capability.listeners.ResponseListener;
 import com.connectsdk.service.command.ServiceCommandError;
+
+import org.w3c.dom.Text;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,6 +34,9 @@ public class InicioJuegoActivity extends Activity {
 
         ConnectionHelper.desaplgListener.setInicioJuegoActivity(this);
         findViewById(R.id.btnJugar).setEnabled(StatusHelper.btnJugar_activo);
+
+        TextView lblInicio = (TextView)findViewById(R.id.lblInicio);
+        lblInicio.setText(StatusHelper.nombreJugador + R.string.inicio);
     }
 
     public void ActivarBotonIniciar(){
