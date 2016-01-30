@@ -44,21 +44,21 @@
 
     <!-- INICIO - Avatar mujer -->
 
-    <!-- JUEGO - Fichas -->
-    <style name="Ficha">
-        <item name="android:layout_width">180dp</item>
-        <item name="android:layout_height">180dp</item>
-        <item name="android:layout_marginRight">2dp</item>
-        <!--<item name="android:background">@drawable/test_720</item>-->
+    <!-- JUEGO LAYOUT -->
+    <style name="ficha">
+        <item name="android:layout_marginRight">20dp</item>
     </style>
 
-    <!-- JUEGO - Botones -->
-    <style name="Boton">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <!--<item name="android:text">@string/boton_jugar</item>-->
-        <item name="android:background">@color/white</item>
+    <style name="letra_ficha">
+        <item name="android:textSize">50sp</item>
+        <item name="android:paddingRight">50dp</item>
+        <item name="android:paddingBottom">50dp</item>
+    </style>
+
+    <style name="puntaje_ficha">
+        <item name="android:textSize">20sp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
     </style>
 
 </resources>

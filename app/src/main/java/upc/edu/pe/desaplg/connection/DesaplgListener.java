@@ -13,8 +13,13 @@ import upc.edu.pe.desaplg.InicioJuegoActivity;
 import upc.edu.pe.desaplg.JuegoActivity;
 import upc.edu.pe.desaplg.R;
 import upc.edu.pe.desaplg.SplashActivity;
+import upc.edu.pe.desaplg.helpers.StatusHelper;
 import upc.edu.pe.desaplg.helpers.StringsHelper;
 import android.view.View;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by Daniela on 23/10/2015.
@@ -80,12 +85,26 @@ public class DesaplgListener implements WebAppSessionListener {
     @Override
     public void onReceiveMessage(WebAppSession webAppSession, Object o) {
 
-        if(o.equals(StringsHelper.PUEDE_INICIAR))
-            activaBotonIniciar();
+        try{
 
-        else if(o.equals(StringsHelper.CARGAR_FICHAS))
-            activaBotonIniciar();
+            JSONObject json = new JSONObject(o.toString());
 
+           /* if(o.equals(StringsHelper.PUEDE_INICIAR))
+                activaBotonIniciar();
+
+            else if(o.equals(StringsHelper.CARGAR_FICHAS))
+                cargarFichas();*/
+
+
+            if(json.getString("accion").equals(StringsHelper.PUEDE_INICIAR))
+                activaBotonIniciar();
+
+            else if(json.getString("accion").equals(StringsHelper.CARGAR_FICHAS))
+                cargarFichas(json.getJSONArray("resultado"));
+
+        }catch(JSONException e){
+
+        }
     }
 
     @Override
@@ -95,13 +114,17 @@ public class DesaplgListener implements WebAppSessionListener {
 
     public void activaBotonIniciar(){
 
-        inicioJuegoActivity.ActivarBotonIniciar();
+        if(inicioJuegoActivity != null) {
+            inicioJuegoActivity.ActivarBotonIniciar();
+        }
+        StatusHelper.btnJugar_activo = true;
     }
 
-    public void cargarFichas(){
+    public void cargarFichas(JSONArray fichas){
 
-        Intent i = new Intent(juegoActivity, InicioJuegoActivity.class);
+        StatusHelper.fichas = fichas;
+        Intent i = new Intent(inicioJuegoActivity, JuegoActivity.class);
         //i.putExtra("turno", turno);
-        juegoActivity.startActivity(i);
+        inicioJuegoActivity.startActivity(i);
     }
 }

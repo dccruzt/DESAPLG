@@ -17,6 +17,7 @@ import java.util.TimerTask;
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
 import upc.edu.pe.desaplg.connection.DesaplgListener;
 import upc.edu.pe.desaplg.connection.JsonHelper;
+import upc.edu.pe.desaplg.helpers.StatusHelper;
 
 /**
  * Created by Daniela on 23/10/2015.
@@ -29,9 +30,11 @@ public class InicioJuegoActivity extends Activity {
         setContentView(R.layout.layout_iniciojuego);
 
         ConnectionHelper.desaplgListener.setInicioJuegoActivity(this);
+        findViewById(R.id.btnJugar).setEnabled(StatusHelper.btnJugar_activo);
     }
 
     public void ActivarBotonIniciar(){
+
         findViewById(R.id.btnJugar).setEnabled(true);
     }
 
