@@ -21,6 +21,7 @@ import upc.edu.pe.desaplg.connection.ConnectionHelper;
 import upc.edu.pe.desaplg.connection.DesaplgListener;
 import upc.edu.pe.desaplg.connection.JsonHelper;
 import upc.edu.pe.desaplg.helpers.StatusHelper;
+import upc.edu.pe.desaplg.view.DesaplgTextView;
 
 /**
  * Created by Daniela on 23/10/2015.
@@ -35,8 +36,8 @@ public class InicioJuegoActivity extends Activity {
         ConnectionHelper.desaplgListener.setInicioJuegoActivity(this);
         findViewById(R.id.btnJugar).setEnabled(StatusHelper.btnJugar_activo);
 
-        TextView lblInicio = (TextView)findViewById(R.id.lblInicio);
-        lblInicio.setText(StatusHelper.nombreJugador + R.string.inicio);
+        DesaplgTextView lblInicio = (DesaplgTextView)findViewById(R.id.lblInicio);
+        lblInicio.setText(StatusHelper.nombreJugador);
     }
 
     public void ActivarBotonIniciar(){

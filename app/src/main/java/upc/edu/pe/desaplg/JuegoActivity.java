@@ -10,6 +10,7 @@ import org.json.JSONException;
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
 import upc.edu.pe.desaplg.helpers.StatusHelper;
 import upc.edu.pe.desaplg.view.DesaplgEditText;
+import upc.edu.pe.desaplg.view.DesaplgTextView;
 
 /**
  * Created by Daniela on 23/10/2015.
@@ -24,7 +25,7 @@ public class JuegoActivity extends Activity{
         ConnectionHelper.desaplgListener.setJuegoActivity(this);
         repartirFichas();
 
-        DesaplgEditText nombreJugador = (DesaplgEditText) findViewById(R.id.nombreJugador);
+        DesaplgTextView nombreJugador = (DesaplgTextView) findViewById(R.id.nombreJugador);
         nombreJugador.setText(StatusHelper.nombreJugador);
     }
 

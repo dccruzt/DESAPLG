@@ -19,7 +19,7 @@
             android:background="@drawable/logo_inicio"
             android:padding="30dp"/>
 
-        <TextView
+        <upc.edu.pe.desaplg.view.DesaplgTextView
             style="@style/label_bienvenida"
             android:id="@+id/lblInicio"
             android:layout_width="match_parent"
