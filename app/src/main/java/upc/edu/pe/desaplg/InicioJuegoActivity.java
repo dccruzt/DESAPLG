@@ -56,4 +56,9 @@ public class InicioJuegoActivity extends Activity {
             }
         });
     }
+
+    public void CargarFichas(){
+        Intent i = new Intent(InicioJuegoActivity.this, JuegoActivity.class);
+        startActivity(i);
+    }
 }
