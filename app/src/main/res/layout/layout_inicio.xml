@@ -19,7 +19,7 @@
             android:background="@drawable/logo_inicio"
             android:padding="30dp"/>
 
-        <TextView
+        <upc.edu.pe.desaplg.view.DesaplgTextView
             style="@style/label_bienvenida"
             android:id="@+id/lblBienvenida"
             android:layout_width="match_parent"
@@ -74,7 +74,7 @@
         android:gravity="center"
         android:layout_weight="1">
 
-        <EditText
+        <upc.edu.pe.desaplg.view.DesaplgEditText
             android:id="@+id/txtConectar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
             android:maxLength="15"
             android:ems="10" />
 
-        <Button
+        <upc.edu.pe.desaplg.view.DesaplgButton
             android:id="@+id/btnConectar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

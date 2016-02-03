@@ -2,6 +2,7 @@ package upc.edu.pe.desaplg.view;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
@@ -12,6 +13,7 @@ public class DesaplgEditText extends EditText {
 
     public DesaplgEditText(Context context, AttributeSet attrs){
         super(context, attrs);
-        this.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/Dosis-Bold.ttf"));
+        this.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/Dosis-ExtraBold.ttf"));
+        this.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
     }
 }

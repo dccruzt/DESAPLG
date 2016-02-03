@@ -39,15 +39,6 @@ public class InicioActivity extends Activity{
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_inicio);
 
-        TextView lblBienvenida = (TextView)findViewById(R.id.lblBienvenida);
-        FontHelper.setFont(this.getApplicationContext(), FontHelper.DOSIS_EXTRABOLD, lblBienvenida);
-
-        EditText txtConectar = (EditText)findViewById(R.id.txtConectar);
-        FontHelper.setFont(this.getApplicationContext(), FontHelper.DOSIS_EXTRABOLD, txtConectar);
-
-        Button btnConectar = (Button)findViewById(R.id.btnConectar);
-        FontHelper.setFont(this.getApplicationContext(), FontHelper.DOSIS_EXTRABOLD, btnConectar);
-
         ConnectionHelper.desaplgListener.setInicioActivity(this);
     }
 

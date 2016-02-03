@@ -12,6 +12,6 @@ public class DesaplgButton extends Button {
 
     public DesaplgButton(Context context, AttributeSet attrs){
         super(context, attrs);
-        this.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/Dosis-Bold.ttf"));
+        this.setTypeface(Typeface.createFromAsset(context.getAssets(), "fonts/Dosis-ExtraBold.ttf"));
     }
 }

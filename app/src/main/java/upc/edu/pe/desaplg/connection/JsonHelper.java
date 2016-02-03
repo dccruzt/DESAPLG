@@ -73,4 +73,34 @@ public class JsonHelper {
             return null;
         }
     }
+
+    public static JSONObject enviarFicha(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.ENVIAR_FICHA);
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
+
+    public static JSONObject cargarInicioAct(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.CARGAR_INICIO_ACT);
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
 }

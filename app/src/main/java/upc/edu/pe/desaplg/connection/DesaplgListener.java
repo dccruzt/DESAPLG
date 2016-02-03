@@ -6,6 +6,7 @@ import android.widget.ImageButton;
 import com.connectsdk.service.sessions.WebAppSession;
 import com.connectsdk.service.sessions.WebAppSessionListener;
 
+import upc.edu.pe.desaplg.CargandoActivity;
 import upc.edu.pe.desaplg.ConexionActivity;
 import upc.edu.pe.desaplg.CreditosActivity;
 import upc.edu.pe.desaplg.InicioActivity;
@@ -32,6 +33,7 @@ public class DesaplgListener implements WebAppSessionListener {
     private InicioJuegoActivity inicioJuegoActivity;
     private JuegoActivity juegoActivity;
     private SplashActivity splashActivity;
+    private CargandoActivity cargandoActivity;
 
     public CreditosActivity getCreditosActivity() {
         return creditosActivity;
@@ -81,6 +83,14 @@ public class DesaplgListener implements WebAppSessionListener {
         this.conexionActivity = conexionActivity;
     }
 
+    public CargandoActivity getCargandoActivity() {
+        return cargandoActivity;
+    }
+
+    public void setCargandoActivity(CargandoActivity cargandoActivity) {
+        this.cargandoActivity = cargandoActivity;
+    }
+
 
     @Override
     public void onReceiveMessage(WebAppSession webAppSession, Object o) {
@@ -89,18 +99,14 @@ public class DesaplgListener implements WebAppSessionListener {
 
             JSONObject json = new JSONObject(o.toString());
 
-           /* if(o.equals(StringsHelper.PUEDE_INICIAR))
-                activaBotonIniciar();
-
-            else if(o.equals(StringsHelper.CARGAR_FICHAS))
-                cargarFichas();*/
-
-
             if(json.getString("accion").equals(StringsHelper.PUEDE_INICIAR))
                 activaBotonIniciar();
 
             else if(json.getString("accion").equals(StringsHelper.CARGAR_FICHAS))
                 cargarFichas(json.getJSONArray("resultado"));
+
+            else if(json.getString("accion").equals(StringsHelper.CARGAR_INICIO_ACT))
+                cargarInicioAct();
 
         }catch(JSONException e){
 
@@ -124,7 +130,12 @@ public class DesaplgListener implements WebAppSessionListener {
 
         StatusHelper.fichas = fichas;
         Intent i = new Intent(inicioJuegoActivity, JuegoActivity.class);
-        //i.putExtra("turno", turno);
         inicioJuegoActivity.startActivity(i);
+    }
+
+    public void cargarInicioAct(){
+
+        Intent i = new Intent(cargandoActivity, InicioActivity.class);
+        cargandoActivity.startActivity(i);
     }
 }

@@ -87,7 +87,7 @@ public class ConexionActivity extends Activity {
                         }
                     });
 
-                    Intent i = new Intent(ConexionActivity.this, InicioActivity.class);
+                    Intent i = new Intent(ConexionActivity.this, CargandoActivity.class);
                     i.putExtra("mensaje", "Conectando dispositivo...");
                     startActivity(i);
 
