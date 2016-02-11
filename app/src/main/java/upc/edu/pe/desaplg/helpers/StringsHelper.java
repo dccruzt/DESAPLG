@@ -5,6 +5,7 @@ package upc.edu.pe.desaplg.helpers;
  */
 public class StringsHelper {
     public static String ACCION = "accion";
+    public static String RESULTADO = "resultado";
     public static String JUGADOR = "jugador";
     public static String AVATAR = "avatar";
 
@@ -14,6 +15,7 @@ public class StringsHelper {
     public static String DESCONECTAR_JUGADOR = "desconectarJugador";
     public static String EMPEZAR_JUEGO = "empezarJuego";
     public static String ENVIAR_FICHA = "enviarFicha";
+    public static String MOVER_FICHA = "moverFicha";
 
     //Acciones recibidas
     public static String NO_PUEDE_INICIAR = "noPuedeIniciar";

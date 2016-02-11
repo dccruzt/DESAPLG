@@ -103,4 +103,26 @@ public class JsonHelper {
             return null;
         }
     }
+
+    public static JSONObject moverFicha(final float desX, final float desY){
+
+        try {
+            final JSONObject desplazamiento = new JSONObject(){
+                {
+                    put("desX", desX);
+                    put("desY", desY);
+                }
+            };
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.MOVER_FICHA);
+                    put(StringsHelper.RESULTADO, desplazamiento);
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
 }

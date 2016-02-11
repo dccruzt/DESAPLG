@@ -137,24 +137,24 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
 
     public void girarRuleta(View v){
 
-        Random random = new Random();
-        int nVueltasRandom = random.nextInt(10)+2;
-        int ndeplazamiento = (random.nextInt(10)+1);
-        int nfin =  360*nVueltasRandom;
-        int ninicial = 2;
-
         try{
+
+            Random random = new Random();
+            int nVueltasRandom = random.nextInt(10)+2;
+            int ndeplazamiento = (random.nextInt(10)+1);/*StatusHelper.categoria().getInt(categoria);*/
+            int nfin = 360*nVueltasRandom;
+            int ninicial = 2;
+
+            RotateAnimation animation = new RotateAnimation(0, nfin + ndeplazamiento*18, ancho,alto);
+            animation.setFillAfter(true);
+            animation.setFillEnabled(true);
+            animation.setDuration(1000 * nVueltasRandom);
+            imgRuleta.startAnimation(animation);
 
             Log.e("categoria",String.valueOf(StatusHelper.categoria().getString(String.valueOf(ndeplazamiento))));
 
         }catch (JSONException e){
         }
-
-        RotateAnimation animation = new RotateAnimation(0, nfin + ndeplazamiento*18, ancho,alto);
-        animation.setFillAfter(true);
-        animation.setFillEnabled(true);
-        animation.setDuration(1000 * nVueltasRandom);
-        imgRuleta.startAnimation(animation);
     }
 
     @Override
@@ -209,7 +209,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                     vTracker.computeCurrentVelocity(1000); //Este 1000 es por así decirlo la "precisión" de la medida
 
                     //Aquí mandas a la TV la velocidad de tu dedo que básicamente es el desplazamiento en X y en Y que debe tener la ficha en la TV
-                   /* ConnectionHelper.webAppSession.sendMessage(JsonHelper.getMoverFichaJson(vTracker.getXVelocity()/40, vTracker.getYVelocity()/40), new ResponseListener<Object>() {
+                    ConnectionHelper.webAppSession.sendMessage(JsonHelper.moverFicha(vTracker.getXVelocity()/100, vTracker.getYVelocity()/100), new ResponseListener<Object>() {
 
                         @Override
                         public void onError(ServiceCommandError error) {
@@ -218,7 +218,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                         @Override
                         public void onSuccess(Object object) {
                         }
-                    });*/
+                    });
                     break;
                 case MotionEvent.ACTION_UP:
                     //Con esto le dices a la TV que coloque la ficha cuando sueltes tu dedo.
