@@ -209,7 +209,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                     vTracker.computeCurrentVelocity(1000); //Este 1000 es por así decirlo la "precisión" de la medida
 
                     //Aquí mandas a la TV la velocidad de tu dedo que básicamente es el desplazamiento en X y en Y que debe tener la ficha en la TV
-                    ConnectionHelper.webAppSession.sendMessage(JsonHelper.moverFicha(vTracker.getXVelocity()/100, vTracker.getYVelocity()/100), new ResponseListener<Object>() {
+                    ConnectionHelper.webAppSession.sendMessage(JsonHelper.moverFicha(Math.round(vTracker.getXVelocity()/50) , Math.round(vTracker.getYVelocity()/50)), new ResponseListener<Object>() {
 
                         @Override
                         public void onError(ServiceCommandError error) {

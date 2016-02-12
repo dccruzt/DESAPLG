@@ -104,7 +104,7 @@ public class JsonHelper {
         }
     }
 
-    public static JSONObject moverFicha(final float desX, final float desY){
+    public static JSONObject moverFicha(final int desX, final int desY){
 
         try {
             final JSONObject desplazamiento = new JSONObject(){
