@@ -74,12 +74,12 @@ public class JsonHelper {
         }
     }
 
-    public static JSONObject enviarFicha(){
+    public static JSONObject cargarInicioAct(){
 
         try {
             JSONObject json = new JSONObject() {
                 {
-                    put(StringsHelper.ACCION, StringsHelper.ENVIAR_FICHA);
+                    put(StringsHelper.ACCION, StringsHelper.CARGAR_INICIO_ACT);
                 }
             };
             return json;
@@ -89,12 +89,18 @@ public class JsonHelper {
         }
     }
 
-    public static JSONObject cargarInicioAct(){
+    public static JSONObject empezarMovimiento(final String letra){
 
         try {
+            final JSONObject ficha = new JSONObject(){
+                {
+                    put("letra", letra);
+                }
+            };
             JSONObject json = new JSONObject() {
                 {
-                    put(StringsHelper.ACCION, StringsHelper.CARGAR_INICIO_ACT);
+                    put(StringsHelper.ACCION, StringsHelper.EMPEZAR_MOVIMIENTO);
+                    put(StringsHelper.RESULTADO, ficha);
                 }
             };
             return json;

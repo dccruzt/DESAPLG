@@ -14,8 +14,8 @@ public class StringsHelper {
     public static String CONECTAR_JUGADOR = "conectarJugador";
     public static String DESCONECTAR_JUGADOR = "desconectarJugador";
     public static String EMPEZAR_JUEGO = "empezarJuego";
-    public static String ENVIAR_FICHA = "enviarFicha";
     public static String MOVER_FICHA = "moverFicha";
+    public static String EMPEZAR_MOVIMIENTO = "empezarMovimiento";
 
     //Acciones recibidas
     public static String NO_PUEDE_INICIAR = "noPuedeIniciar";

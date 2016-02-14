@@ -42,14 +42,14 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
     private int alto;
     private int xDelta;
     private int yDelta;
-    private ImageView ficha1;
-    private ImageView ficha2;
-    private ImageView ficha3;
-    private ImageView ficha4;
-    private ImageView ficha5;
-    private ImageView ficha6;
-    private ImageView ficha7;
-    private ImageView ficha8;
+    //private ImageView ficha1;
+    //private ImageView ficha2;
+    //private ImageView ficha3;
+    //private ImageView ficha4;
+    //private ImageView ficha5;
+    //private ImageView ficha6;
+    //private ImageView ficha7;
+    //private ImageView ficha8;
 
     boolean movimientoActivo = false;
     VelocityTracker vTracker = null;
@@ -60,11 +60,11 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         setContentView(R.layout.layout_juego);
 
         ConnectionHelper.desaplgListener.setJuegoActivity(this);
-        repartirFichas();
+        repartirFichas(8);
 
         marco = (ViewGroup) findViewById(R.id.marco);
 
-        ficha1 = (ImageView) findViewById(R.id.ficha1);
+        /*ficha1 = (ImageView) findViewById(R.id.ficha1);
         ficha2 = (ImageView) findViewById(R.id.ficha2);
         ficha3 = (ImageView) findViewById(R.id.ficha3);
         ficha4 = (ImageView) findViewById(R.id.ficha4);
@@ -80,7 +80,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         ficha5.setOnLongClickListener(this);
         ficha6.setOnLongClickListener(this);
         ficha7.setOnLongClickListener(this);
-        ficha8.setOnLongClickListener(this);
+        ficha8.setOnLongClickListener(this);*/
 
         DesaplgTextView nombreJugador = (DesaplgTextView) findViewById(R.id.nombreJugador);
         nombreJugador.setText(StatusHelper.nombreJugador);
@@ -90,46 +90,35 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         alto =  getResources().getDimensionPixelSize(R.dimen.alto_ruleta)/2;
     }
 
-    public void repartirFichas() {
+    public void repartirFichas(int numFichas) {
 
         try{
 
-            TextView ficha_1 = (TextView) findViewById(R.id.letra_ficha1);
-            TextView ficha_2 = (TextView) findViewById(R.id.letra_ficha2);
-            TextView ficha_3 = (TextView) findViewById(R.id.letra_ficha3);
-            TextView ficha_4 = (TextView) findViewById(R.id.letra_ficha4);
-            TextView ficha_5 = (TextView) findViewById(R.id.letra_ficha5);
-            TextView ficha_6 = (TextView) findViewById(R.id.letra_ficha6);
-            TextView ficha_7 = (TextView) findViewById(R.id.letra_ficha7);
-            TextView ficha_8 = (TextView) findViewById(R.id.letra_ficha8);
+            int idFicha, idLetra, idPuntos;
+            String letra, puntos;
 
-            TextView puntos_ficha_1 = (TextView) findViewById(R.id.puntaje_ficha1);
-            TextView puntos_ficha_2 = (TextView) findViewById(R.id.puntaje_ficha2);
-            TextView puntos_ficha_3 = (TextView) findViewById(R.id.puntaje_ficha3);
-            TextView puntos_ficha_4 = (TextView) findViewById(R.id.puntaje_ficha4);
-            TextView puntos_ficha_5 = (TextView) findViewById(R.id.puntaje_ficha5);
-            TextView puntos_ficha_6 = (TextView) findViewById(R.id.puntaje_ficha6);
-            TextView puntos_ficha_7 = (TextView) findViewById(R.id.puntaje_ficha7);
-            TextView puntos_ficha_8 = (TextView) findViewById(R.id.puntaje_ficha8);
+            for(int i = 1; i <= numFichas; i++){
 
-            ficha_1.setText(StatusHelper.fichas.getString(0));
-            ficha_2.setText(StatusHelper.fichas.getString(1));
-            ficha_3.setText(StatusHelper.fichas.getString(2));
-            ficha_4.setText(StatusHelper.fichas.getString(3));
-            ficha_5.setText(StatusHelper.fichas.getString(4));
-            ficha_6.setText(StatusHelper.fichas.getString(5));
-            ficha_7.setText(StatusHelper.fichas.getString(6));
-            ficha_8.setText(StatusHelper.fichas.getString(7));
+                idFicha = getResources().getIdentifier("ficha" + i, "id", getPackageName());
+                idLetra = getResources().getIdentifier("letra_ficha" + i, "id", getPackageName());
+                idPuntos = getResources().getIdentifier("puntaje_ficha" + i, "id", getPackageName());
 
-            puntos_ficha_1.setText(StatusHelper.puntajes_fichas().getString(ficha_1.getText().toString()));
-            puntos_ficha_2.setText(StatusHelper.puntajes_fichas().getString(ficha_2.getText().toString()));
-            puntos_ficha_3.setText(StatusHelper.puntajes_fichas().getString(ficha_3.getText().toString()));
-            puntos_ficha_4.setText(StatusHelper.puntajes_fichas().getString(ficha_4.getText().toString()));
-            puntos_ficha_5.setText(StatusHelper.puntajes_fichas().getString(ficha_5.getText().toString()));
-            puntos_ficha_6.setText(StatusHelper.puntajes_fichas().getString(ficha_6.getText().toString()));
-            puntos_ficha_7.setText(StatusHelper.puntajes_fichas().getString(ficha_7.getText().toString()));
-            puntos_ficha_8.setText(StatusHelper.puntajes_fichas().getString(ficha_8.getText().toString()));
+                Log.e("hola", String.valueOf(idFicha));
 
+                ImageView ivFicha = (ImageView) findViewById(idFicha);
+                TextView tvLetra = (TextView) findViewById(idLetra);
+                TextView tvPuntos = (TextView) findViewById(idPuntos);
+
+                letra = StatusHelper.fichas.getString(i - 1);
+                puntos = StatusHelper.puntajes_fichas().getString(letra);
+
+                ivFicha.setVisibility(View.VISIBLE);
+                ivFicha.setOnLongClickListener(this);
+
+                ivFicha.setTag(letra);
+                tvLetra.setText(letra);
+                tvPuntos.setText(puntos);
+            }
         }catch(JSONException e) {
 
         }
@@ -160,8 +149,10 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
     @Override
     public boolean onLongClick(final View v) {
 
+        String letraSeleccionada = String.valueOf(v.getTag());
+
         //Le dices a la TV que acabas de seleccionar una ficha
-        ConnectionHelper.webAppSession.sendMessage(JsonHelper.enviarFicha(), new ResponseListener<Object>() {
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.empezarMovimiento(letraSeleccionada), new ResponseListener<Object>() {
 
             @Override
             public void onError(ServiceCommandError error) {
@@ -223,7 +214,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                 case MotionEvent.ACTION_UP:
                     //Con esto le dices a la TV que coloque la ficha cuando sueltes tu dedo.
                     marco.setVisibility(View.GONE);
-                    ConnectionHelper.webAppSession.sendMessage(JsonHelper.enviarFicha(), new ResponseListener<Object>() {
+                    /*ConnectionHelper.webAppSession.sendMessage(JsonHelper.enviarFicha(), new ResponseListener<Object>() {
 
                         @Override
                         public void onError(ServiceCommandError error) {
@@ -232,7 +223,8 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                         @Override
                         public void onSuccess(Object object) {
                         }
-                    });
+                    });*/
+                    movimientoActivo = false;
                     break;
                 case MotionEvent.ACTION_CANCEL:
                     //Esto mata al vTracker

@@ -4,6 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_inicio">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="40dp"
+    android:layout_gravity="center">
 
     <upc.edu.pe.desaplg.view.DesaplgTextView
         android:id="@+id/lblCargando"
@@ -87,5 +93,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"/>
+
+</LinearLayout>
 
 </LinearLayout>
