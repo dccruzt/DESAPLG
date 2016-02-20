@@ -108,6 +108,10 @@ public class DesaplgListener implements WebAppSessionListener {
             else if(json.getString("accion").equals(StringsHelper.CARGAR_INICIO_ACT))
                 cargarInicioAct();
 
+            else if (json.getString("accion").equals(StringsHelper.RECIBIR_PALABRA))
+                mostrarPalabra(json.getJSONObject("resultado"));
+
+
         }catch(JSONException e){
 
         }
@@ -137,5 +141,9 @@ public class DesaplgListener implements WebAppSessionListener {
 
         Intent i = new Intent(cargandoActivity, InicioActivity.class);
         cargandoActivity.startActivity(i);
+    }
+
+    public void mostrarPalabra(JSONObject palabra){
+        juegoActivity.mostrarPalabra(palabra.toString());
     }
 }

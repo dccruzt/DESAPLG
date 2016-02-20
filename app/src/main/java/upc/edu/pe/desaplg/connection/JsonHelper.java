@@ -131,4 +131,35 @@ public class JsonHelper {
             return null;
         }
     }
+    public static JSONObject soltarFicha(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.SOLTAR_FICHA);
+                    put(StringsHelper.RESULTADO, "");
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
+
+    public static JSONObject jugar(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.VALIDAR_PALABRA);
+                    put(StringsHelper.RESULTADO, "");
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
 }

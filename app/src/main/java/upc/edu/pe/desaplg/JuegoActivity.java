@@ -17,6 +17,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.connectsdk.service.capability.listeners.ResponseListener;
 import com.connectsdk.service.command.ServiceCommandError;
@@ -215,7 +216,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                 case MotionEvent.ACTION_UP:
                     //Con esto le dices a la TV que coloque la ficha cuando sueltes tu dedo.
                     marco.setVisibility(View.GONE);
-                    /*ConnectionHelper.webAppSession.sendMessage(JsonHelper.enviarFicha(), new ResponseListener<Object>() {
+                    ConnectionHelper.webAppSession.sendMessage(JsonHelper.soltarFicha(), new ResponseListener<Object>() {
 
                         @Override
                         public void onError(ServiceCommandError error) {
@@ -224,7 +225,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                         @Override
                         public void onSuccess(Object object) {
                         }
-                    });*/
+                    });
                     movimientoActivo = false;
                     break;
                 case MotionEvent.ACTION_CANCEL:
@@ -234,5 +235,24 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
             }
         }
         return super.onTouchEvent(event);
+    }
+
+    public void jugar(){
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.jugar() , new ResponseListener<Object>() {
+
+            @Override
+            public void onError(ServiceCommandError error) {
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+
+            }
+        });
+    }
+
+    public void mostrarPalabra(String palabra){
+        Toast toast = Toast.makeText(getApplicationContext(), "Palabra: " + palabra, 2);
+        toast.show();
     }
 }
