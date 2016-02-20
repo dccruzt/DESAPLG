@@ -41,9 +41,6 @@ public class ConexionActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_conexion);
 
-        TextView lblConexion = (TextView)findViewById(R.id.txtConexion);
-        FontHelper.setFont(this.getApplicationContext(), FontHelper.DOSIS_EXTRABOLD, lblConexion);
-
         ConnectionHelper.desaplgListener.setConexionActivity(this);
 
         getTVList();

@@ -12,6 +12,29 @@ public class StatusHelper {
     public static JSONArray fichas;
     public static String nombreJugador;
     public static boolean btnJugar_activo = false;
+    public static JSONObject categoria(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put("1", "pais");
+                    put("2", "deporte");
+                    put("3", "deporte");
+                    put("4", "fruta");
+                    put("5", "fruta");
+                    put("6", "animal");
+                    put("7", "animal");
+                    put("8", "color");
+                    put("9", "color");
+                    put("10", "pais");
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
 
     public static JSONObject puntajes_fichas(){
 
@@ -48,30 +71,6 @@ public class StatusHelper {
                     put("X", "8");
                     put("Y", "4");
                     put("Z", "10");
-                }
-            };
-            return json;
-
-        }catch(JSONException ex){
-            return null;
-        }
-    }
-
-    public static JSONObject categoria(){
-
-        try {
-            JSONObject json = new JSONObject() {
-                {
-                    put("1", "pais");
-                    put("2", "deporte");
-                    put("3", "deporte");
-                    put("4", "fruta");
-                    put("5", "fruta");
-                    put("6", "animal");
-                    put("7", "animal");
-                    put("8", "color");
-                    put("9", "color");
-                    put("10", "pais");
                 }
             };
             return json;

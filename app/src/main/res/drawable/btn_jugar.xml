@@ -2,5 +2,6 @@
     <item android:state_enabled="true"
         android:drawable="@drawable/boton_jugar" />
 
+    <shape></shape>
     <item android:drawable="@drawable/boton_jugar_des" />
 </selector>

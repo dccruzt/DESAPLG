@@ -21,29 +21,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_gravity="center"
         android:layout_weight="1">
 
-        <TextView
+        <upc.edu.pe.desaplg.view.DesaplgTextView
             style="@style/texto_conexion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
+            android:layout_width="fill_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:textSize="30dp"
+            android:gravity="center"
             android:id="@+id/txtConexion"
             android:text="@string/seleccion_webOS"
-            android:layout_gravity="center_horizontal"
-            android:editable="false"
             android:textIsSelectable="false"
             android:textColor="@color/white" />
 
         <ListView
-            style="@style/barra_webos"
-            android:id="@+id/listTV"
             android:background="@drawable/btn_webos"
-            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_width="800dp"
+            android:id="@+id/listTV"
             android:listSelector="@android:color/transparent"
             android:cacheColorHint="@android:color/transparent"
             android:divider="@android:color/transparent"
-            android:dividerHeight="12sp">
+            android:dividerHeight="20sp">
         </ListView>
     </LinearLayout>
 </LinearLayout>

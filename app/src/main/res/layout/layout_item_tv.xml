@@ -3,10 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <upc.edu.pe.desaplg.view.DesaplgTextView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:paddingLeft="6dip"
+        android:paddingRight="6dip"
+        android:textColor="#663000"
         android:id="@+id/itemTV" />
 </LinearLayout>

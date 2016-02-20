@@ -2,9 +2,11 @@ package upc.edu.pe.desaplg;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import upc.edu.pe.desaplg.connection.ConnectionHelper;

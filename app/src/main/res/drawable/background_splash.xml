@@ -1,0 +1,12 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="#111"/>
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:src="@drawable/fondo"
+            android:tileMode="repeat" />
+    </item>
+</layer-list>

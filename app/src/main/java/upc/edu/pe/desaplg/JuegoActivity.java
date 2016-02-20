@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.net.wifi.WifiConfiguration;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;

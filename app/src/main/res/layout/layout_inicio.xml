@@ -37,28 +37,28 @@
         android:gravity="center"
         android:layout_weight="1">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/Avatar_Hombre_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cambiarImagen"
             android:background="@drawable/btn_avatar_h1" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/Avatar_Mujer_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cambiarImagen"
             android:background="@drawable/btn_avatar_m1" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/Avatar_Hombre_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cambiarImagen"
             android:background="@drawable/btn_avatar_h2" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/Avatar_Mujer_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

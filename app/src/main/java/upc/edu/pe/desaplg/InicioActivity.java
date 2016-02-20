@@ -3,6 +3,8 @@ package upc.edu.pe.desaplg;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -74,6 +76,7 @@ public class InicioActivity extends Activity{
     }
 
     public void cambiarImagen(View image) {
+
         findViewById(R.id.Avatar_Hombre_1).setSelected(false);
         findViewById(R.id.Avatar_Hombre_2).setSelected(false);
         findViewById(R.id.Avatar_Mujer_1).setSelected(false);
