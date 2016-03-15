@@ -102,15 +102,23 @@ public class DesaplgListener implements WebAppSessionListener {
             if(json.getString("accion").equals(StringsHelper.PUEDE_INICIAR))
                 activaBotonIniciar();
 
-            else if(json.getString("accion").equals(StringsHelper.CARGAR_FICHAS))
-                cargarFichas(json.getJSONArray("resultado"));
+            else if(json.getString("accion").equals(StringsHelper.CARGAR_INICIO))
+                cargarInicio();
 
-            else if(json.getString("accion").equals(StringsHelper.CARGAR_INICIO_ACT))
-                cargarInicioAct();
+            else if(json.getString("accion").equals(StringsHelper.CARGAR_JUEGO))
+                cargarJuego(json.getJSONArray("resultado"));
 
-            else if (json.getString("accion").equals(StringsHelper.RECIBIR_PALABRA))
-                mostrarPalabra(json.getJSONObject("resultado"));
+            else if (json.getString("accion").equals(StringsHelper.EMPEZAR_TURNO))
+                empezarTurno(json.getBoolean("resultado"));
 
+            else if (json.getString("accion").equals(StringsHelper.POSICION_FICHA))
+                posicionFicha(json.getBoolean("resultado"));
+
+            else if (json.getString("accion").equals(StringsHelper.VALIDAR_PALABRA))
+                validarPalabra(json.getJSONObject("resultado"));
+
+            else if (json.getString("accion").equals(StringsHelper.TERMINAR_TURNO))
+                terminarTurno(json.getJSONArray("resultado"));
 
         }catch(JSONException e){
 
@@ -130,20 +138,47 @@ public class DesaplgListener implements WebAppSessionListener {
         StatusHelper.btnJugar_activo = true;
     }
 
-    public void cargarFichas(JSONArray fichas){
+    public void cargarInicio(){
+
+        Intent i = new Intent(cargandoActivity, InicioActivity.class);
+        cargandoActivity.startActivity(i);
+    }
+
+    public void cargarJuego(JSONArray fichas){
 
         StatusHelper.fichas = fichas;
         Intent i = new Intent(inicioJuegoActivity, JuegoActivity.class);
         inicioJuegoActivity.startActivity(i);
     }
 
-    public void cargarInicioAct(){
+    public void empezarTurno(boolean turno){
 
-        Intent i = new Intent(cargandoActivity, InicioActivity.class);
-        cargandoActivity.startActivity(i);
+        StatusHelper.turno = turno;
+        if(juegoActivity != null){
+            juegoActivity.empezarTurno();
+        }
     }
 
-    public void mostrarPalabra(JSONObject palabra){
-        juegoActivity.mostrarPalabra(palabra.toString());
+    public void posicionFicha(boolean valida){
+
+        StatusHelper.posicion_valida = valida;
+        if(juegoActivity != null){
+            juegoActivity.posicionFicha();
+        }
+
+    }
+
+    public void validarPalabra(JSONObject resultado) throws JSONException{
+
+        if(juegoActivity != null){
+            juegoActivity.validarPalabra(resultado);
+        }
+    }
+
+    public void terminarTurno(JSONArray nuevasFichas) throws JSONException{
+
+        if(juegoActivity != null){
+            juegoActivity.terminarTurno(nuevasFichas);
+        }
     }
 }

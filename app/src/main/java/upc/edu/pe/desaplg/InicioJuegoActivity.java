@@ -68,4 +68,15 @@ public class InicioJuegoActivity extends Activity {
         Intent i = new Intent(InicioJuegoActivity.this, JuegoActivity.class);
         startActivity(i);
     }
+
+    @Override
+    protected void onDestroy() {
+
+        ConnectionHelper.desaplgListener.setInicioJuegoActivity(null);
+        System.gc();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {}
 }

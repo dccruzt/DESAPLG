@@ -1,10 +1,7 @@
 package upc.edu.pe.desaplg;
-
 import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.net.wifi.WifiConfiguration;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -12,25 +9,24 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.connectsdk.service.capability.listeners.ResponseListener;
 import com.connectsdk.service.command.ServiceCommandError;
-
 import org.json.JSONArray;
 import org.json.JSONException;
-
+import org.json.JSONObject;
 import java.util.Random;
-
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
 import upc.edu.pe.desaplg.connection.JsonHelper;
 import upc.edu.pe.desaplg.helpers.StatusHelper;
-import upc.edu.pe.desaplg.view.DesaplgEditText;
 import upc.edu.pe.desaplg.view.DesaplgTextView;
 
 /**
@@ -38,88 +34,185 @@ import upc.edu.pe.desaplg.view.DesaplgTextView;
  */
 public class JuegoActivity extends Activity implements View.OnLongClickListener {
 
+    private ViewGroup layoutJuego;
     private ViewGroup marco;
-    private ImageView imgRuleta;
+    private ViewGroup marcoTurno;
+    private ViewGroup marcoAnimacion;
+    private TextView txtTurno;
+    private Button imgRuleta;
     private int ancho;
     private int alto;
     private int xDelta;
     private int yDelta;
-    //private ImageView ficha1;
-    //private ImageView ficha2;
-    //private ImageView ficha3;
-    //private ImageView ficha4;
-    //private ImageView ficha5;
-    //private ImageView ficha6;
-    //private ImageView ficha7;
-    //private ImageView ficha8;
-
+    private int tiempo = 3;
+    ImageView imgGlow;
     boolean movimientoActivo = false;
     VelocityTracker vTracker = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_juego);
 
         ConnectionHelper.desaplgListener.setJuegoActivity(this);
-        repartirFichas(8);
+        repartirFichas(StatusHelper.fichas.length());
 
         marco = (ViewGroup) findViewById(R.id.marco);
-
-        /*ficha1 = (ImageView) findViewById(R.id.ficha1);
-        ficha2 = (ImageView) findViewById(R.id.ficha2);
-        ficha3 = (ImageView) findViewById(R.id.ficha3);
-        ficha4 = (ImageView) findViewById(R.id.ficha4);
-        ficha5 = (ImageView) findViewById(R.id.ficha5);
-        ficha6 = (ImageView) findViewById(R.id.ficha6);
-        ficha7 = (ImageView) findViewById(R.id.ficha7);
-        ficha8 = (ImageView) findViewById(R.id.ficha8);
-
-        ficha1.setOnLongClickListener(this);
-        ficha2.setOnLongClickListener(this);
-        ficha3.setOnLongClickListener(this);
-        ficha4.setOnLongClickListener(this);
-        ficha5.setOnLongClickListener(this);
-        ficha6.setOnLongClickListener(this);
-        ficha7.setOnLongClickListener(this);
-        ficha8.setOnLongClickListener(this);*/
+        marcoTurno = (ViewGroup) findViewById(R.id.marcoTurno);
+        marcoAnimacion = (ViewGroup) findViewById(R.id.marcoAnimacion);
+        layoutJuego = (ViewGroup) findViewById(R.id.layoutJuego);
+        txtTurno = (TextView) findViewById(R.id.txtTurno);
 
         DesaplgTextView nombreJugador = (DesaplgTextView) findViewById(R.id.nombreJugador);
         nombreJugador.setText(StatusHelper.nombreJugador);
 
-        imgRuleta = (ImageView) findViewById(R.id.imgRuleta);
-        ancho =  getResources().getDimensionPixelSize(R.dimen.ancho_ruleta)/2;
-        alto =  getResources().getDimensionPixelSize(R.dimen.alto_ruleta)/2;
+        imgGlow = (ImageView)findViewById(R.id.imgGlow);
+        imgRuleta = (Button) findViewById(R.id.imgRuleta);
+        ancho =  getResources().getDimensionPixelSize(R.dimen.ancho_ruleta)/2; alto =  getResources().getDimensionPixelSize(R.dimen.alto_ruleta)/2;
+
+        setearElementos(layoutJuego, false);
+    }
+
+    public void screeon(){
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+    }
+
+    public void empezarTurno(){
+
+        txtTurno.setText(StatusHelper.nombreJugador + getResources().getString(R.string.turno));
+        if(StatusHelper.turno)
+            animacionTurno();
+        else
+            setearElementos(layoutJuego, false);
+    }
+
+    public void animacionTurno(){
+
+        marcoAnimacion.setVisibility(View.VISIBLE);
+        marcoTurno.setVisibility(View.VISIBLE);
+
+        final TextView tiempoTurno = (TextView) findViewById(R.id.tiempoTurno);
+        Animation anim1 = AnimationUtils.loadAnimation(this, R.anim.turno1);
+        final Animation anim2 = AnimationUtils.loadAnimation(this, R.anim.turno2);
+
+        final ImageView circ4 = (ImageView) findViewById(R.id.circ4);
+        final ImageView circ2 = (ImageView) findViewById(R.id.circ2);
+
+        anim1.setAnimationListener(new Animation.AnimationListener() {
+
+            int duracion = 3;
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                circ4.setVisibility(View.INVISIBLE);
+                circ4.clearAnimation();
+
+                anim2.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+                        tiempo--;
+                        circ2.clearAnimation();
+                        tiempoTurno.setText(String.valueOf(tiempo));
+                        if(tiempo > 0) {
+                            circ4.setVisibility(View.VISIBLE);
+                            animacionTurno();
+                        }
+                        else
+                        {
+                            //circ2.setVisibility(View.INVISIBLE);
+                            marcoTurno.setVisibility(View.INVISIBLE);
+                            marcoAnimacion.setVisibility(View.INVISIBLE);
+                            setearElementos(layoutJuego, true);
+                            tiempo = 3;
+                        }
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+
+                    }
+                });
+
+                circ2.startAnimation(anim2);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        circ4.startAnimation(anim1);
+    }
+
+    private static void setearElementos(ViewGroup layout, boolean estado) {
+
+        layout.setEnabled(estado);
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            View child = layout.getChildAt(i);
+            if (child instanceof ViewGroup) {
+                setearElementos((ViewGroup) child, estado);
+            } else {
+                if(!estado){
+                    if(child instanceof Button)
+                        ((Button)child).getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
+                    if(child instanceof TextView)
+                        ((TextView)child).setTextColor(Color.GRAY);
+                }else{
+                    if(child instanceof Button)
+                        ((Button)child).getBackground().setColorFilter(null);
+                    if(child instanceof TextView)
+                        ((TextView)child).setTextColor(Color.WHITE);
+                }
+
+                child.setEnabled(estado);
+            }
+        }
     }
 
     public void repartirFichas(int numFichas) {
 
         try{
-
-            int idFicha, idLetra, idPuntos;
+            int idFicha;
             String letra, puntos;
 
-            for(int i = 1; i <= numFichas; i++){
+            for(int i = 0; i < numFichas; i++){
 
-                idFicha = getResources().getIdentifier("ficha" + i, "id", getPackageName());
-                idLetra = getResources().getIdentifier("letra_ficha" + i, "id", getPackageName());
-                idPuntos = getResources().getIdentifier("puntaje_ficha" + i, "id", getPackageName());
+                //Se obtiene el id del view de la ficha y se obtiene
+                idFicha = getResources().getIdentifier("ficha" + (i + 1), "id", getPackageName());
+                RelativeLayout rlFicha = (RelativeLayout) findViewById(idFicha);
 
-                Log.e("hola", String.valueOf(idFicha));
-
-                ImageView ivFicha = (ImageView) findViewById(idFicha);
-                TextView tvLetra = (TextView) findViewById(idLetra);
-                TextView tvPuntos = (TextView) findViewById(idPuntos);
-
-                letra = StatusHelper.fichas.getString(i - 1);
+                //Se asigna la letra y el puntaje en dos variables
+                letra = StatusHelper.fichas.getString(i);
                 puntos = StatusHelper.puntajes_fichas().getString(letra);
 
-                ivFicha.setVisibility(View.VISIBLE);
-                ivFicha.setOnLongClickListener(this);
+                //Se pinta y setea la letra y su respectivo puntaje en cada ficha
+                rlFicha.getChildAt(0).setTag(letra);
+                ((TextView)rlFicha.getChildAt(1)).setText(letra);
+                ((TextView)rlFicha.getChildAt(2)).setText(puntos);
 
-                ivFicha.setTag(letra);
-                tvLetra.setText(letra);
-                tvPuntos.setText(puntos);
+                //Se hace visible la ficha y se le asigna el método onLongClick
+                rlFicha.setVisibility(View.VISIBLE);
+                rlFicha.getChildAt(0).setOnLongClickListener(this);
+
+                StatusHelper.fichas_todas.add(rlFicha);
             }
         }catch(JSONException e) {
 
@@ -151,28 +244,32 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
     @Override
     public boolean onLongClick(final View v) {
 
-        String letraSeleccionada = String.valueOf(v.getTag());
+        if(StatusHelper.turno) {
 
-        //Le dices a la TV que acabas de seleccionar una ficha
-        ConnectionHelper.webAppSession.sendMessage(JsonHelper.empezarMovimiento(letraSeleccionada), new ResponseListener<Object>() {
+            StatusHelper.fichas_movidas.push((View) v.getParent());
+            String letraSeleccionada = String.valueOf(v.getTag());
 
-            @Override
-            public void onError(ServiceCommandError error) {
-            }
+            //Le dices a la TV que acabas de seleccionar una ficha
+            ConnectionHelper.webAppSession.sendMessage(JsonHelper.empezarMovimiento(letraSeleccionada), new ResponseListener<Object>() {
 
-            @Override
-            public void onSuccess(Object object) {
+                @Override
+                public void onError(ServiceCommandError error) {
+                }
 
-                marco.setVisibility(View.VISIBLE);
-                //Activas el movimiento
-                movimientoActivo = true;
+                @Override
+                public void onSuccess(Object object) {
 
-                //Esto hace que el TouchEvent no se bloquee con el LongClick, y pueda entrar onTouchEvent del Activity que vas a implementar abajo
-                MotionEvent event = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis() + 1000, MotionEvent.ACTION_DOWN, v.getX(), v.getY(), 0);
-                JuegoActivity.this.dispatchTouchEvent(event);
-            }
-        });
-        movimientoActivo = true;
+                    marco.setVisibility(View.VISIBLE);
+                    //Activas el movimiento
+                    movimientoActivo = true;
+
+                    //Esto hace que el TouchEvent no se bloquee con el LongClick, y pueda entrar onTouchEvent del Activity que vas a implementar abajo
+                    MotionEvent event = MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis() + 1000, MotionEvent.ACTION_DOWN, v.getX(), v.getY(), 0);
+                    JuegoActivity.this.dispatchTouchEvent(event);
+                }
+            });
+            movimientoActivo = true;
+        }
         return false;
     }
 
@@ -183,6 +280,9 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
 
             switch(event.getActionMasked()) {
                 case MotionEvent.ACTION_DOWN:
+
+                    imgGlow.setX(event.getX() - imgGlow.getWidth() / 2);
+                    imgGlow.setY(event.getY() - imgGlow.getHeight() / 2);
                     //Esto es para inicializar un objeto (vTracker) que va a medir la velocidad de tu dedo desplazándose
                     if(vTracker == null)
                         vTracker = VelocityTracker.obtain();
@@ -193,7 +293,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                 case MotionEvent.ACTION_MOVE:
 
                     //Esto es lo que hace que el GLOW se mueva
-                    ImageView imgGlow = (ImageView)findViewById(R.id.imgGlow);
+                    //ImageView imgGlow = (ImageView)findViewById(R.id.imgGlow);
                     imgGlow.setX(event.getX() - imgGlow.getWidth() / 2);
                     imgGlow.setY(event.getY() - imgGlow.getHeight() / 2);
 
@@ -237,8 +337,9 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         return super.onTouchEvent(event);
     }
 
-    public void jugar(){
-        ConnectionHelper.webAppSession.sendMessage(JsonHelper.jugar() , new ResponseListener<Object>() {
+    public void jugar(View v){
+
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.jugar(), new ResponseListener<Object>() {
 
             @Override
             public void onError(ServiceCommandError error) {
@@ -247,12 +348,140 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
             @Override
             public void onSuccess(Object object) {
 
+                StatusHelper.boton = "J";
             }
         });
     }
 
-    public void mostrarPalabra(String palabra){
-        Toast toast = Toast.makeText(getApplicationContext(), "Palabra: " + palabra, 2);
+    public void validarPalabra(JSONObject palabra) throws JSONException{
+
+        Boolean valido = palabra.getBoolean("valido");
+
+        if(valido)
+            setearElementos(layoutJuego, false);
+        Toast toast = Toast.makeText(getApplicationContext(), palabra.getString("mensaje"), 2);
         toast.show();
     }
+
+    public void posicionFicha(){
+
+        View v = StatusHelper.fichas_movidas.peek();
+        if(StatusHelper.posicion_valida)
+            v.setVisibility(View.INVISIBLE);
+        else {
+            StatusHelper.fichas_movidas.pop();
+        }
+    }
+
+    public void retrocederFicha(View v){
+
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.retrocederFicha(), new ResponseListener<Object>() {
+
+            @Override
+            public void onError(ServiceCommandError error) {
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+
+                if (!StatusHelper.fichas_movidas.empty())
+                    StatusHelper.fichas_movidas.pop().setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    public void terminarTurno(JSONArray nuevasFichas) throws JSONException{
+
+        setearElementos(layoutJuego, false);
+        int cant = StatusHelper.fichas_movidas.size();
+
+        //Si la palabra fue válida, el número de letras a reponer será mayor a cero.
+        if(nuevasFichas != null && nuevasFichas.length() > 0) {
+
+            if(StatusHelper.boton.equals("J")){
+
+                for (int i = 0; i < cant; i++) {
+
+                    //Se setean las nuevas fichas
+                    RelativeLayout rl = (RelativeLayout) StatusHelper.fichas_movidas.pop();
+
+                    rl.getChildAt(0).setTag(nuevasFichas.getString(i));
+                    ((TextView) (rl).getChildAt(1)).setText(nuevasFichas.getString(i));
+                    ((TextView) (rl).getChildAt(2)).setText(StatusHelper.puntajes_fichas().getString(nuevasFichas.getString(i)));
+                    rl.setVisibility(View.VISIBLE);
+                }
+            }
+            if(StatusHelper.boton.equals("C")){
+
+                for (int i = 0; i < StatusHelper.fichas_todas.size(); i++){
+
+                    RelativeLayout rl = (RelativeLayout)StatusHelper.fichas_todas.get(i);
+                    rl.getChildAt(0).setTag(nuevasFichas.getString(i));
+                    ((TextView) (rl).getChildAt(1)).setText(nuevasFichas.getString(i));
+                    ((TextView) (rl).getChildAt(2)).setText(StatusHelper.puntajes_fichas().getString(nuevasFichas.getString(i)));
+                }
+            }
+        }else{//Si la palabra no fue válida, el número de fichas a reponer es cero. Las fichas movidas vuelven a su lugar
+
+            for(int i = 0; i < cant; i++){
+
+                StatusHelper.fichas_movidas.pop().setVisibility(View.VISIBLE);
+            }
+        }
+
+        for(int i = 0; i < StatusHelper.fichas_todas.size(); i++)
+            Log.e(String.valueOf(i),((RelativeLayout) StatusHelper.fichas_todas.get(i)).getChildAt(0).getTag().toString());
+    }
+
+    public void cambiarFichas(View v){
+
+        JSONArray fichas = new JSONArray();
+        for(int i = 0; i < StatusHelper.fichas_todas.size(); i++){
+
+            if(StatusHelper.fichas_todas.get(i).getVisibility() == View.VISIBLE)
+                fichas.put(((RelativeLayout)StatusHelper.fichas_todas.get(i)).getChildAt(0).getTag().toString());
+        }
+
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.cambiarFichas(StatusHelper.fichas), new ResponseListener<Object>() {
+
+            @Override
+            public void onError(ServiceCommandError error) {
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+
+                StatusHelper.boton = "C";
+                StatusHelper.fichas_movidas.removeAllElements();
+                setearElementos(layoutJuego, false);
+            }
+        });
+    }
+
+    public void pasarTurno(View v){
+
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.pasarTurno(), new ResponseListener<Object>() {
+
+            @Override
+            public void onError(ServiceCommandError error) {
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+
+                setearElementos(layoutJuego, false);
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        ConnectionHelper.desaplgListener.setJuegoActivity(null);
+        System.gc();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {}
 }

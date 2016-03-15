@@ -41,29 +41,50 @@
             android:id="@+id/Avatar_Hombre_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:onClick="cambiarImagen"
-            android:background="@drawable/btn_avatar_h1" />
+            android:src="@drawable/avatar_h1"
+            android:background="@drawable/seleccionado"/>
 
         <ImageView
             android:id="@+id/Avatar_Mujer_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:onClick="cambiarImagen"
-            android:background="@drawable/btn_avatar_m1" />
+            android:src="@drawable/avatar_m1"
+            android:background="@drawable/seleccionado"/>
 
         <ImageView
             android:id="@+id/Avatar_Hombre_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:onClick="cambiarImagen"
-            android:background="@drawable/btn_avatar_h2" />
+            android:src="@drawable/avatar_h2"
+            android:background="@drawable/seleccionado"/>
 
         <ImageView
             android:id="@+id/Avatar_Mujer_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="cambiarImagen"
-            android:background="@drawable/btn_avatar_m2" />
+            android:src="@drawable/avatar_m2"
+            android:background="@drawable/seleccionado" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/about"
+                android:onClick="mostrarCreditos"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
 
@@ -77,15 +98,17 @@
         <upc.edu.pe.desaplg.view.DesaplgEditText
             android:id="@+id/txtConectar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:padding="10dp"
             android:background="@drawable/txt_nombre"
+            android:layout_marginBottom="10dp"
             android:inputType="textPersonName"
             android:hint="@string/textbox_conectar"
             android:layout_gravity="center_horizontal"
             android:textColor="#989898"
             android:textColorHint="#989898"
             android:maxLength="15"
-            android:ems="10" />
+            android:ems="11" />
 
         <upc.edu.pe.desaplg.view.DesaplgButton
             android:id="@+id/btnConectar"

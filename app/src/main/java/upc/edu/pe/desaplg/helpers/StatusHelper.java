@@ -1,8 +1,15 @@
 package upc.edu.pe.desaplg.helpers;
 
+import android.view.View;
+import android.view.ViewParent;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 /**
  * Created by Daniela on 28/01/2016.
@@ -12,6 +19,12 @@ public class StatusHelper {
     public static JSONArray fichas;
     public static String nombreJugador;
     public static boolean btnJugar_activo = false;
+    public static boolean turno = false;
+    public static boolean posicion_valida = false;
+    public static Stack<View> fichas_movidas = new Stack<View>();
+    public static List<View> fichas_todas = new ArrayList<View>();
+    public static String boton;
+
     public static JSONObject categoria(){
 
         try {
@@ -35,7 +48,6 @@ public class StatusHelper {
             return null;
         }
     }
-
     public static JSONObject puntajes_fichas(){
 
         try {

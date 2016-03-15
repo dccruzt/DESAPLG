@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape  android:shape="oval">
+            <solid android:color="@android:color/transparent"/>
+            <padding android:top="6dp" />
+        </shape>
+    </item>
+    <item android:id="@+id/avatar_sel">
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent"/>
+            <padding android:left="3dp" android:top="-6dp" android:right="3dp" android:bottom="8dp" />
+        </shape>
+    </item>
+</layer-list>

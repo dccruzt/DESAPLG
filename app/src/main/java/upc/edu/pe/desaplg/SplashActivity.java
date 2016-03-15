@@ -25,9 +25,7 @@ public class SplashActivity extends Activity {
         ConnectionHelper.context = getApplicationContext();
         ConnectionHelper.desaplgListener = new DesaplgListener();
 
-        DiscoveryManager.init(getApplicationContext());
-        ConnectionHelper.discoveryManager = DiscoveryManager.getInstance();
-        ConnectionHelper.discoveryManager.start();
+        iniciarDiscovery();
 
         TimerTask task = new TimerTask() {
             @Override
@@ -42,4 +40,22 @@ public class SplashActivity extends Activity {
 
         new Timer().schedule(task, 5000);
     }
+
+    public void iniciarDiscovery(){
+
+        DiscoveryManager.init(getApplicationContext());
+        ConnectionHelper.discoveryManager = DiscoveryManager.getInstance();
+        ConnectionHelper.discoveryManager.start();
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        ConnectionHelper.desaplgListener.setSplashActivity(null);
+        System.gc();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {}
 }

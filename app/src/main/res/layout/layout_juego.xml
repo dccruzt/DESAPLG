@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:keepScreenOn="true">
 
     <LinearLayout
         style="@style/Container"
@@ -30,6 +31,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/layoutJuego"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -46,16 +48,16 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
+                        android:id="@+id/ficha1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
-                        <ImageView
+                        <Button
                             style="@style/ficha"
-                            android:visibility="invisible"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:background="@drawable/letra"
-                            android:id="@+id/ficha1" />
+                            android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             style="@style/letra_ficha"
@@ -74,16 +76,16 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/ficha2"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
-                        <ImageView
+                        <Button
                             style="@style/ficha"
-                            android:visibility="invisible"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:background="@drawable/letra"
-                            android:id="@+id/ficha2" />
+                            android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             style="@style/letra_ficha"
@@ -102,16 +104,16 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/ficha3"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
-                        <ImageView
+                        <Button
                             style="@style/ficha"
-                            android:visibility="invisible"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:background="@drawable/letra"
-                            android:id="@+id/ficha3" />
+                            android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             style="@style/letra_ficha"
@@ -130,16 +132,16 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/ficha4"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
-                        <ImageView
+                        <Button
                             style="@style/ficha"
-                            android:visibility="invisible"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:background="@drawable/letra"
-                            android:id="@+id/ficha4" />
+                            android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             style="@style/letra_ficha"
@@ -167,16 +169,16 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
+                        android:id="@+id/ficha5"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
-                        <ImageView
+                        <Button
                             style="@style/ficha"
-                            android:visibility="invisible"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:background="@drawable/letra"
-                            android:id="@+id/ficha5" />
+                            android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             style="@style/letra_ficha"
@@ -195,16 +197,16 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/ficha6"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
-                        <ImageView
+                        <Button
                             style="@style/ficha"
-                            android:visibility="invisible"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:background="@drawable/letra"
-                            android:id="@+id/ficha6" />
+                            android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             style="@style/letra_ficha"
@@ -223,16 +225,16 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/ficha7"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
-                        <ImageView
+                        <Button
                             style="@style/ficha"
-                            android:visibility="invisible"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:background="@drawable/letra"
-                            android:id="@+id/ficha7" />
+                            android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             style="@style/letra_ficha"
@@ -251,16 +253,16 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                        android:id="@+id/ficha8"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible">
 
-                        <ImageView
+                        <Button
                             style="@style/ficha"
-                            android:visibility="invisible"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
-                            android:background="@drawable/letra"
-                            android:id="@+id/ficha8" />
+                            android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             style="@style/letra_ficha"
@@ -297,7 +299,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/btnCambiar"
-                            android:background="@drawable/boton_cambiar"/>
+                            android:background="@drawable/boton_cambiar"
+                            android:onClick="cambiarFichas"/>
+
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -315,7 +319,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/btnRetroceder"
-                            android:background="@drawable/boton_retroceder"/>
+                            android:background="@drawable/boton_retroceder"
+                            android:onClick="retrocederFicha"/>
+
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -333,7 +339,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/btnPasar"
-                            android:background="@drawable/boton_pasar"/>
+                            android:background="@drawable/boton_pasar"
+                            android:onClick="pasarTurno"/>
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -351,7 +358,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/btnPlay"
-                            android:background="@drawable/boton_play"/>
+                            android:background="@drawable/boton_play"
+                            android:onClick="jugar"/>
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -369,7 +377,7 @@
                 android:gravity="center"
                 android:layout_weight="1" >
 
-                <ImageView
+                <Button
                     android:layout_width="@dimen/ancho_ruleta"
                     android:layout_height="@dimen/alto_ruleta"
                     android:id="@+id/imgRuleta"
@@ -424,6 +432,77 @@
             android:layout_height="wrap_content"
             android:background="@drawable/glow"
             android:id="@+id/imgGlow"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:background="#000"
+        android:alpha="0.8"
+        android:id="@+id/marcoTurno">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/marcoAnimacion"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <upc.edu.pe.desaplg.view.DesaplgTextView
+            android:id="@+id/txtTurno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="42dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/turno" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/borde_turno">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/circ1"
+                android:src="@drawable/cvacio1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/circ2"
+                android:src="@drawable/clleno1" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/circ3"
+                android:layout_toRightOf="@id/circ1"
+                android:src="@drawable/cvacio2" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/circ4"
+                android:layout_toRightOf="@id/circ2"
+                android:src="@drawable/clleno2" />
+
+            <upc.edu.pe.desaplg.view.DesaplgTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tiempoTurno"
+                android:layout_centerInParent="true"
+                android:textColor="#663000"
+                android:text="3"
+                android:textSize="65dp"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
 

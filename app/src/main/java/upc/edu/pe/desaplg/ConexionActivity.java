@@ -41,6 +41,10 @@ public class ConexionActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_conexion);
 
+        //DiscoveryManager.init(getApplicationContext());
+        //ConnectionHelper.discoveryManager = DiscoveryManager.getInstance();
+        //ConnectionHelper.discoveryManager.start();
+
         ConnectionHelper.desaplgListener.setConexionActivity(this);
 
         getTVList();
@@ -111,4 +115,15 @@ public class ConexionActivity extends Activity {
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+
+        ConnectionHelper.desaplgListener.setConexionActivity(null);
+        System.gc();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {}
 }

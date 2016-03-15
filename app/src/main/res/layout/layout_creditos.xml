@@ -1,7 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_animacion"
+    android:gravity="center">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <upc.edu.pe.desaplg.view.DesaplgTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="42dp"
+            android:layout_marginBottom="30dp"
+            android:text="¡DANIELA TU TURNO EMPIEZA EN:"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde_turno">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/circ1"
+                android:src="@drawable/cvacio1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/circ2"
+                android:src="@drawable/clleno1" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/circ3"
+                android:layout_toRightOf="@id/circ1"
+                android:src="@drawable/cvacio2" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/circ4"
+                android:layout_toRightOf="@id/circ2"
+                android:src="@drawable/clleno2" />
+
+            <upc.edu.pe.desaplg.view.DesaplgTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tiempoTurno"
+                android:layout_centerInParent="true"
+                android:textColor="#663000"
+                android:text="3"
+                android:textSize="65dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -2,6 +2,7 @@ package upc.edu.pe.desaplg.connection;
 
 import android.widget.EditText;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -59,12 +60,12 @@ public class JsonHelper {
         }
     }
 
-    public static JSONObject CargarFichas(){
+    public static JSONObject CargarJuego(){
 
         try {
             JSONObject json = new JSONObject() {
                 {
-                    put(StringsHelper.ACCION, StringsHelper.CARGAR_FICHAS);
+                    put(StringsHelper.ACCION, StringsHelper.CARGAR_JUEGO);
                 }
             };
             return json;
@@ -74,12 +75,12 @@ public class JsonHelper {
         }
     }
 
-    public static JSONObject cargarInicioAct(){
+    public static JSONObject cargarInicio(){
 
         try {
             JSONObject json = new JSONObject() {
                 {
-                    put(StringsHelper.ACCION, StringsHelper.CARGAR_INICIO_ACT);
+                    put(StringsHelper.ACCION, StringsHelper.CARGAR_INICIO);
                 }
             };
             return json;
@@ -152,7 +153,71 @@ public class JsonHelper {
         try {
             JSONObject json = new JSONObject() {
                 {
-                    put(StringsHelper.ACCION, StringsHelper.VALIDAR_PALABRA);
+                    put(StringsHelper.ACCION, StringsHelper.JUGAR);
+                    put(StringsHelper.RESULTADO, "");
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
+
+    public static JSONObject retrocederFicha(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.RETROCEDER_FICHA);
+                    put(StringsHelper.RESULTADO, "");
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
+
+    public static JSONObject cambiarFichas(final JSONArray fichas){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.CAMBIAR_FICHAS);
+                    put(StringsHelper.RESULTADO, fichas);
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
+
+    public static JSONObject pasarTurno(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.PASAR_TURNO);
+                    put(StringsHelper.RESULTADO, "");
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
+
+    public static JSONObject mostrarCreditos(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.MOSTRAR_CREDITOS);
                     put(StringsHelper.RESULTADO, "");
                 }
             };

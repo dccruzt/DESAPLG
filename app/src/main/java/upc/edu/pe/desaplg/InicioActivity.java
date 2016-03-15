@@ -5,7 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -77,15 +80,45 @@ public class InicioActivity extends Activity{
 
     public void cambiarImagen(View image) {
 
-        findViewById(R.id.Avatar_Hombre_1).setSelected(false);
-        findViewById(R.id.Avatar_Hombre_2).setSelected(false);
-        findViewById(R.id.Avatar_Mujer_1).setSelected(false);
-        findViewById(R.id.Avatar_Mujer_2).setSelected(false);
-        image.setSelected(true);
+        findViewById(R.id.Avatar_Hombre_1).setBackgroundResource(0);
+        findViewById(R.id.Avatar_Hombre_2).setBackgroundResource(0);
+        findViewById(R.id.Avatar_Mujer_1).setBackgroundResource(0);
+        findViewById(R.id.Avatar_Mujer_2).setBackgroundResource(0);
+
         try {
             nombreAvatar = getIDName(image, R.id.class).trim();
+            String color = "#C0C0C0";
+
+            switch (nombreAvatar){
+                case "Avatar_Hombre_1": color = "#42AFA4"; break;
+                case "Avatar_Mujer_1": color = "#F9AAC3"; break;
+                case "Avatar_Hombre_2": color = "#7DCFD7"; break;
+                case "Avatar_Mujer_2": color = "#FAD2F4"; break;
+            }
+
+            LayerDrawable layerDrawable = (LayerDrawable) ContextCompat.getDrawable(InicioActivity.this, R.drawable.seleccionado);
+            GradientDrawable shape = (GradientDrawable) layerDrawable.findDrawableByLayerId(R.id.avatar_sel);
+
+            shape.setColor(Color.parseColor(color));
+            image.setBackgroundResource(R.drawable.seleccionado);
+
         }catch(Exception ex){
         }
+    }
+
+    public void mostrarCreditos(View v){
+
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.mostrarCreditos(), new ResponseListener<Object>() {
+            @Override
+            public void onSuccess(Object o) {
+
+            }
+
+            @Override
+            public void onError(ServiceCommandError serviceCommandError) {
+
+            }
+        });
     }
 
     public static String getIDName(View view, Class<?> clazz) throws Exception {
@@ -102,4 +135,15 @@ public class InicioActivity extends Activity{
         return "";
 
     }
+
+    @Override
+    protected void onDestroy() {
+
+        ConnectionHelper.desaplgListener.setInicioActivity(null);
+        System.gc();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {}
 }
