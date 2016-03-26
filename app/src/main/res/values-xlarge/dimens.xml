@@ -1,0 +1,17 @@
+<resources>
+
+    <dimen name="conexion_logo_ancho">406dp</dimen>
+    <dimen name="conexion_logo_alto">388dp</dimen>
+    <dimen name="conexion_barra_ancho">800dp</dimen>
+    <dimen name="conexion_barra_alto">60dp</dimen>
+    <dimen name="conexion_letra">30dp</dimen>
+    <dimen name="conexion_letra_marginTop">60dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="ancho_ruleta">380dp</dimen>
+    <dimen name="alto_ruleta">380dp</dimen>
+
+</resources>

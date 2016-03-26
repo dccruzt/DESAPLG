@@ -13,4 +13,5 @@
         android:id="@+id/splash"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/logo_upc" />
+
 </LinearLayout>

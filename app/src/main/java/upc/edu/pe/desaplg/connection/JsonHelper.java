@@ -227,4 +227,36 @@ public class JsonHelper {
             return null;
         }
     }
+
+    public static JSONObject mostrarCategoria(final String categoria){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.MOSTRAR_CATEGORIA);
+                    put(StringsHelper.RESULTADO, categoria);
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
+
+    public static JSONObject salir(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.SALIR);
+                    put(StringsHelper.RESULTADO, "");
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
 }

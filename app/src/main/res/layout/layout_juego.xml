@@ -6,7 +6,11 @@
     android:keepScreenOn="true">
 
     <LinearLayout
-        style="@style/Container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:orientation="vertical"
         android:background="@drawable/fondo_juego">
 
         <RelativeLayout
@@ -20,10 +24,10 @@
                 android:background="@drawable/categoria"/>
 
             <upc.edu.pe.desaplg.view.DesaplgTextView
-                style="@style/categoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:textSize="40dp"
                 android:id="@+id/nombreJugador" />
 
         </RelativeLayout>
@@ -31,10 +35,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/layoutJuego"
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/layoutFichas"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -54,23 +58,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            style="@style/ficha"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_marginRight="20dp"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/letra_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="70sp"
+                            android:paddingRight="27dp"
+                            android:paddingBottom="22dp"
                             android:id="@+id/letra_ficha1" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/puntaje_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="20sp"
+                            android:paddingLeft="50dp"
+                            android:paddingTop="35dp"
                             android:id="@+id/puntaje_ficha1" />
 
                     </RelativeLayout>
@@ -82,23 +90,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            style="@style/ficha"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_marginRight="20dp"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/letra_ficha"
+                            android:textSize="70sp"
+                            android:paddingRight="27dp"
+                            android:paddingBottom="22dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:id="@+id/letra_ficha2" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/puntaje_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="20sp"
+                            android:paddingLeft="50dp"
+                            android:paddingTop="35dp"
                             android:id="@+id/puntaje_ficha2" />
 
                     </RelativeLayout>
@@ -110,20 +122,24 @@
                         android:visibility="invisible">
 
                         <Button
-                            style="@style/ficha"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_marginRight="20dp"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/letra_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="70sp"
+                            android:paddingRight="27dp"
+                            android:paddingBottom="22dp"
                             android:id="@+id/letra_ficha3" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/puntaje_ficha"
+                            android:textSize="20sp"
+                            android:paddingLeft="50dp"
+                            android:paddingTop="35dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -138,23 +154,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            style="@style/ficha"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_marginRight="20dp"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/letra_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="70sp"
+                            android:paddingRight="27dp"
+                            android:paddingBottom="22dp"
                             android:id="@+id/letra_ficha4" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/puntaje_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="20sp"
+                            android:paddingLeft="50dp"
+                            android:paddingTop="35dp"
                             android:id="@+id/puntaje_ficha4" />
 
                     </RelativeLayout>
@@ -175,23 +195,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            style="@style/ficha"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_marginRight="20dp"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/letra_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="70sp"
+                            android:paddingRight="27dp"
+                            android:paddingBottom="22dp"
                             android:id="@+id/letra_ficha5" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/puntaje_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="20sp"
+                            android:paddingLeft="50dp"
+                            android:paddingTop="35dp"
                             android:id="@+id/puntaje_ficha5" />
 
                     </RelativeLayout>
@@ -203,23 +227,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            style="@style/ficha"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_marginRight="20dp"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/letra_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="70sp"
+                            android:paddingRight="27dp"
+                            android:paddingBottom="22dp"
                             android:id="@+id/letra_ficha6" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/puntaje_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="20sp"
+                            android:paddingLeft="50dp"
+                            android:paddingTop="35dp"
                             android:id="@+id/puntaje_ficha6" />
 
                     </RelativeLayout>
@@ -231,23 +259,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            style="@style/ficha"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_marginRight="20dp"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/letra_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="70sp"
+                            android:paddingRight="27dp"
+                            android:paddingBottom="22dp"
                             android:id="@+id/letra_ficha7" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/puntaje_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="20sp"
+                            android:paddingLeft="50dp"
+                            android:paddingTop="35dp"
                             android:id="@+id/puntaje_ficha7" />
 
                     </RelativeLayout>
@@ -259,23 +291,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            style="@style/ficha"
                             android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_marginRight="20dp"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/letra_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="70sp"
+                            android:paddingRight="27dp"
+                            android:paddingBottom="22dp"
                             android:id="@+id/letra_ficha8" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            style="@style/puntaje_ficha"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="20sp"
+                            android:paddingLeft="50dp"
+                            android:paddingTop="35dp"
                             android:id="@+id/puntaje_ficha8" />
 
                     </RelativeLayout>
@@ -372,6 +408,7 @@
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/layoutRuleta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:orientation="vertical"
     android:background="@drawable/fondo_conexion">
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,11 +14,12 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/conexion_logo_ancho"
+            android:layout_height="@dimen/conexion_logo_alto"
             android:layout_gravity="center_horizontal"
             android:id="@+id/imgLogo"
-            style="@style/logo" />
+            android:src="@drawable/logo_400" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -25,20 +30,19 @@
         android:layout_weight="1">
 
         <upc.edu.pe.desaplg.view.DesaplgTextView
-            style="@style/texto_conexion"
+            android:layout_marginTop="@dimen/conexion_letra_marginTop"
             android:layout_width="fill_parent"
             android:layout_height="?android:attr/listPreferredItemHeight"
-            android:textSize="30dp"
+            android:textSize="@dimen/conexion_letra"
             android:gravity="center"
             android:id="@+id/txtConexion"
             android:text="@string/seleccion_webOS"
-            android:textIsSelectable="false"
-            android:textColor="@color/white" />
+            android:textIsSelectable="false" />
 
         <ListView
             android:background="@drawable/btn_webos"
-            android:layout_height="60dp"
-            android:layout_width="800dp"
+            android:layout_width="@dimen/conexion_barra_ancho"
+            android:layout_height="@dimen/conexion_barra_alto"
             android:id="@+id/listTV"
             android:listSelector="@android:color/transparent"
             android:cacheColorHint="@android:color/transparent"

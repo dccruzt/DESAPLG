@@ -120,6 +120,12 @@ public class DesaplgListener implements WebAppSessionListener {
             else if (json.getString("accion").equals(StringsHelper.TERMINAR_TURNO))
                 terminarTurno(json.getJSONArray("resultado"));
 
+            else if (json.getString("accion").equals(StringsHelper.INICIAR_JUEGO))
+                iniciarJuego();
+
+            else if (json.getString("accion").equals(StringsHelper.CERRAR_APLICACION))
+                cerrarAplicacion(json.getBoolean("resultado"));
+
         }catch(JSONException e){
 
         }
@@ -180,5 +186,18 @@ public class DesaplgListener implements WebAppSessionListener {
         if(juegoActivity != null){
             juegoActivity.terminarTurno(nuevasFichas);
         }
+    }
+
+    public void iniciarJuego(){
+
+        if(juegoActivity != null){
+            juegoActivity.iniciarJuego();
+        }
+    }
+
+    public void cerrarAplicacion(boolean cerrarWebapp){
+
+        ConnectionHelper.cerrarAplicacion(cerrarWebapp);
+
     }
 }

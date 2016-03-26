@@ -9,6 +9,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -137,11 +138,22 @@ public class InicioActivity extends Activity{
     }
 
     @Override
-    protected void onDestroy() {
+    public void finish() {
+
+        Log.e("ondestroy","se cerró");
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.salir(), new ResponseListener<Object>() {
+            @Override
+            public void onError(ServiceCommandError error) {
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+            }
+        });
 
         ConnectionHelper.desaplgListener.setInicioActivity(null);
-        System.gc();
-        super.onDestroy();
+        super.finish();
+        //System.gc();
     }
 
     @Override

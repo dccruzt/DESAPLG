@@ -20,12 +20,11 @@
             android:padding="30dp"/>
 
         <upc.edu.pe.desaplg.view.DesaplgTextView
-            style="@style/label_bienvenida"
             android:id="@+id/lblInicio"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:textColor="@color/white" />
+            android:textSize="40dp" />
 
     </LinearLayout>
 

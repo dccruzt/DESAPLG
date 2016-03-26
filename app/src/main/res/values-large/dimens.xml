@@ -1,0 +1,10 @@
+<resources>
+
+    <dimen name="conexion_logo_ancho">306dp</dimen>
+    <dimen name="conexion_logo_alto">288dp</dimen>
+    <dimen name="conexion_barra_ancho">600dp</dimen>
+    <dimen name="conexion_barra_alto">50dp</dimen>
+    <dimen name="conexion_letra">25dp</dimen>
+    <dimen name="conexion_letra_marginTop">20dp</dimen>
+
+</resources>

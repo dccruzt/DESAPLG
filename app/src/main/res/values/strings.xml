@@ -13,5 +13,5 @@
     <string name="retroceder">RETROCEDER</string>
     <string name="pasar">PASAR</string>
     <string name="jugar">JUGAR</string>
-    <string name="turno">DANIELA\nTU TURNO EMPIEZA EN</string>
+    <string name="turno">\nTU TURNO EMPIEZA EN</string>
 </resources>

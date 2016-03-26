@@ -5,9 +5,9 @@
 
     <upc.edu.pe.desaplg.view.DesaplgTextView
         android:layout_width="fill_parent"
-        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_height="@dimen/conexion_letra"
         android:gravity="center"
-        android:textSize="30sp"
+        android:textSize="@dimen/conexion_letra"
         android:paddingLeft="6dip"
         android:paddingRight="6dip"
         android:textColor="#663000"

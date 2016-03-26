@@ -1,8 +1,10 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="ancho_ruleta">380dp</dimen>
-    <dimen name="alto_ruleta">380dp</dimen>
+    <dimen name="conexion_logo_ancho">206dp</dimen>
+    <dimen name="conexion_logo_alto">188dp</dimen>
+    <dimen name="conexion_barra_ancho">400dp</dimen>
+    <dimen name="conexion_barra_alto">30dp</dimen>
+    <dimen name="conexion_letra">10dp</dimen>
+    <dimen name="conexion_letra_marginTop">30dp</dimen>
+
 </resources>

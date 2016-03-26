@@ -22,6 +22,8 @@ public class StringsHelper {
     public static String CAMBIAR_FICHAS = "cambiarFichas";
     public static String PASAR_TURNO = "pasarTurno";
     public static String MOSTRAR_CREDITOS = "mostrarCreditos";
+    public static String MOSTRAR_CATEGORIA = "mostrarCategoria";
+    public static String SALIR = "salir";
 
     //Acciones recibidas
     public static String NO_PUEDE_INICIAR = "noPuedeIniciar";
@@ -32,4 +34,6 @@ public class StringsHelper {
     public static String POSICION_FICHA = "posicionFicha";
     public static String VALIDAR_PALABRA = "validarPalabra";
     public static String TERMINAR_TURNO = "terminarTurno";
+    public static String INICIAR_JUEGO = "iniciarJuego";
+    public static String CERRAR_APLICACION = "cerrarAplicaion";
 }

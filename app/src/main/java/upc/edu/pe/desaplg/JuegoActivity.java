@@ -34,12 +34,17 @@ import upc.edu.pe.desaplg.view.DesaplgTextView;
  */
 public class JuegoActivity extends Activity implements View.OnLongClickListener {
 
-    private ViewGroup layoutJuego;
+    private ViewGroup layoutFichas;
+    private ViewGroup layoutRuleta;
     private ViewGroup marco;
     private ViewGroup marcoTurno;
     private ViewGroup marcoAnimacion;
     private TextView txtTurno;
+    private Button pin_ruleta;
     private Button imgRuleta;
+
+    Animation anim_pin_ruleta;
+    private boolean pin;
     private int ancho;
     private int alto;
     private int xDelta;
@@ -62,7 +67,8 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         marco = (ViewGroup) findViewById(R.id.marco);
         marcoTurno = (ViewGroup) findViewById(R.id.marcoTurno);
         marcoAnimacion = (ViewGroup) findViewById(R.id.marcoAnimacion);
-        layoutJuego = (ViewGroup) findViewById(R.id.layoutJuego);
+        layoutFichas = (ViewGroup) findViewById(R.id.layoutFichas);
+        layoutRuleta = (ViewGroup) findViewById(R.id.layoutRuleta);
         txtTurno = (TextView) findViewById(R.id.txtTurno);
 
         DesaplgTextView nombreJugador = (DesaplgTextView) findViewById(R.id.nombreJugador);
@@ -71,8 +77,9 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         imgGlow = (ImageView)findViewById(R.id.imgGlow);
         imgRuleta = (Button) findViewById(R.id.imgRuleta);
         ancho =  getResources().getDimensionPixelSize(R.dimen.ancho_ruleta)/2; alto =  getResources().getDimensionPixelSize(R.dimen.alto_ruleta)/2;
-
-        setearElementos(layoutJuego, false);
+        pin = false;
+        setearElementos(layoutFichas, false);
+        setearElementos(layoutRuleta, false);
     }
 
     public void screeon(){
@@ -84,13 +91,15 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
     public void empezarTurno(){
 
         txtTurno.setText(StatusHelper.nombreJugador + getResources().getString(R.string.turno));
-        if(StatusHelper.turno)
-            animacionTurno();
-        else
-            setearElementos(layoutJuego, false);
+        if(StatusHelper.turno) {
+
+            pin = true;
+            setearElementos(layoutRuleta, true);
+            animarPinRuleta();
+        }
     }
 
-    public void animacionTurno(){
+    public void iniciarJuego(){
 
         marcoAnimacion.setVisibility(View.VISIBLE);
         marcoTurno.setVisibility(View.VISIBLE);
@@ -126,19 +135,19 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                     @Override
                     public void onAnimationEnd(Animation animation) {
 
+                        tiempoTurno.setText(String.valueOf(tiempo));
                         tiempo--;
                         circ2.clearAnimation();
-                        tiempoTurno.setText(String.valueOf(tiempo));
                         if(tiempo > 0) {
                             circ4.setVisibility(View.VISIBLE);
-                            animacionTurno();
+                            iniciarJuego();
                         }
                         else
                         {
                             //circ2.setVisibility(View.INVISIBLE);
                             marcoTurno.setVisibility(View.INVISIBLE);
                             marcoAnimacion.setVisibility(View.INVISIBLE);
-                            setearElementos(layoutJuego, true);
+                            setearElementos(layoutFichas, true);
                             tiempo = 3;
                         }
                     }
@@ -160,6 +169,32 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         });
 
         circ4.startAnimation(anim1);
+    }
+
+    public void animarPinRuleta(){
+
+        anim_pin_ruleta = AnimationUtils.loadAnimation(this, R.anim.pin_ruleta);
+        pin_ruleta = (Button)findViewById(R.id.pin_ruleta);
+
+        anim_pin_ruleta.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                if(pin)
+                    animarPinRuleta();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        pin_ruleta.startAnimation(anim_pin_ruleta);
     }
 
     private static void setearElementos(ViewGroup layout, boolean estado) {
@@ -221,24 +256,58 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
 
     public void girarRuleta(View v){
 
-        try{
+        Random random = new Random();
+        int nVueltasRandom = random.nextInt(10)+2;
+        final int ndeplazamiento = (random.nextInt(10)+1);
+        int nfin = 360*nVueltasRandom;
+        int ninicial = 2;
 
-            Random random = new Random();
-            int nVueltasRandom = random.nextInt(10)+2;
-            int ndeplazamiento = (random.nextInt(10)+1);/*StatusHelper.categoria().getInt(categoria);*/
-            int nfin = 360*nVueltasRandom;
-            int ninicial = 2;
+        RotateAnimation animation = new RotateAnimation(0, nfin + ndeplazamiento*18, ancho,alto);
+        animation.setFillAfter(true);
+        animation.setFillEnabled(true);
+        animation.setDuration(500 * nVueltasRandom);
 
-            RotateAnimation animation = new RotateAnimation(0, nfin + ndeplazamiento*18, ancho,alto);
-            animation.setFillAfter(true);
-            animation.setFillEnabled(true);
-            animation.setDuration(1000 * nVueltasRandom);
-            imgRuleta.startAnimation(animation);
+        animation.setAnimationListener(new Animation.AnimationListener() {
 
-            Log.e("categoria",String.valueOf(StatusHelper.categoria().getString(String.valueOf(ndeplazamiento))));
+            @Override
+            public void onAnimationStart(Animation animation) {
 
-        }catch (JSONException e){
-        }
+                pin = false;
+                pin_ruleta.setEnabled(false);
+                pin_ruleta.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                String categoria = null;
+                try {
+                    categoria = StatusHelper.categoria().getString(String.valueOf(ndeplazamiento));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                ConnectionHelper.webAppSession.sendMessage(JsonHelper.mostrarCategoria(categoria), new ResponseListener<Object>() {
+
+                    @Override
+                    public void onError(ServiceCommandError error) {
+                    }
+
+                    @Override
+                    public void onSuccess(Object object) {
+
+                        setearElementos(layoutRuleta, false);
+                    }
+                });
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        imgRuleta.startAnimation(animation);
     }
 
     @Override
@@ -302,7 +371,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                     vTracker.computeCurrentVelocity(1000); //Este 1000 es por así decirlo la "precisión" de la medida
 
                     //Aquí mandas a la TV la velocidad de tu dedo que básicamente es el desplazamiento en X y en Y que debe tener la ficha en la TV
-                    ConnectionHelper.webAppSession.sendMessage(JsonHelper.moverFicha(Math.round(vTracker.getXVelocity()/50) , Math.round(vTracker.getYVelocity()/50)), new ResponseListener<Object>() {
+                    ConnectionHelper.webAppSession.sendMessage(JsonHelper.moverFicha(Math.round(vTracker.getXVelocity()/30) , Math.round(vTracker.getYVelocity()/30)), new ResponseListener<Object>() {
 
                         @Override
                         public void onError(ServiceCommandError error) {
@@ -358,7 +427,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         Boolean valido = palabra.getBoolean("valido");
 
         if(valido)
-            setearElementos(layoutJuego, false);
+            setearElementos(layoutFichas, false);
         Toast toast = Toast.makeText(getApplicationContext(), palabra.getString("mensaje"), 2);
         toast.show();
     }
@@ -392,7 +461,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
 
     public void terminarTurno(JSONArray nuevasFichas) throws JSONException{
 
-        setearElementos(layoutJuego, false);
+        setearElementos(layoutFichas, false);
         int cant = StatusHelper.fichas_movidas.size();
 
         //Si la palabra fue válida, el número de letras a reponer será mayor a cero.
@@ -453,7 +522,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
 
                 StatusHelper.boton = "C";
                 StatusHelper.fichas_movidas.removeAllElements();
-                setearElementos(layoutJuego, false);
+                setearElementos(layoutFichas, false);
             }
         });
     }
@@ -469,7 +538,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
             @Override
             public void onSuccess(Object object) {
 
-                setearElementos(layoutJuego, false);
+                setearElementos(layoutFichas, false);
             }
         });
     }
