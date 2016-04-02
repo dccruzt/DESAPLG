@@ -18,8 +18,8 @@
             android:layout_height="wrap_content" >
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/juego_categoria_ancho"
+                android:layout_height="@dimen/juego_categoria_alto"
                 android:id="@+id/categoria"
                 android:background="@drawable/categoria"/>
 
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textSize="40dp"
+                android:textSize="@dimen/juego_categoria"
                 android:id="@+id/nombreJugador" />
 
         </RelativeLayout>
@@ -58,27 +58,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_width="@dimen/juego_ficha_ancho"
+                            android:layout_height="@dimen/juego_ficha_alto"
+                            android:layout_marginRight="@dimen/juego_ficha_marginRight"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="70sp"
-                            android:paddingRight="27dp"
-                            android:paddingBottom="22dp"
+                            android:textSize="@dimen/juego_ficha_letra"
+                            android:paddingRight="@dimen/juego_ficha_letra_paddingRight"
+                            android:paddingBottom="@dimen/juego_ficha_letra_paddingBottom"
                             android:id="@+id/letra_ficha1" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="20sp"
-                            android:paddingLeft="50dp"
-                            android:paddingTop="35dp"
+                            android:textSize="@dimen/juego_ficha_puntaje"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
                             android:id="@+id/puntaje_ficha1" />
 
                     </RelativeLayout>
@@ -90,15 +90,15 @@
                         android:visibility="invisible">
 
                         <Button
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_width="@dimen/juego_ficha_ancho"
+                            android:layout_height="@dimen/juego_ficha_alto"
+                            android:layout_marginRight="@dimen/juego_ficha_marginRight"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            android:textSize="70sp"
-                            android:paddingRight="27dp"
-                            android:paddingBottom="22dp"
+                            android:textSize="@dimen/juego_ficha_letra"
+                            android:paddingRight="@dimen/juego_ficha_letra_paddingRight"
+                            android:paddingBottom="@dimen/juego_ficha_letra_paddingBottom"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -108,9 +108,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="20sp"
-                            android:paddingLeft="50dp"
-                            android:paddingTop="35dp"
+                            android:textSize="@dimen/juego_ficha_puntaje"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
                             android:id="@+id/puntaje_ficha2" />
 
                     </RelativeLayout>
@@ -122,24 +122,24 @@
                         android:visibility="invisible">
 
                         <Button
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_width="@dimen/juego_ficha_ancho"
+                            android:layout_height="@dimen/juego_ficha_alto"
+                            android:layout_marginRight="@dimen/juego_ficha_marginRight"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="70sp"
-                            android:paddingRight="27dp"
-                            android:paddingBottom="22dp"
+                            android:textSize="@dimen/juego_ficha_letra"
+                            android:paddingRight="@dimen/juego_ficha_letra_paddingRight"
+                            android:paddingBottom="@dimen/juego_ficha_letra_paddingBottom"
                             android:id="@+id/letra_ficha3" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
-                            android:textSize="20sp"
-                            android:paddingLeft="50dp"
-                            android:paddingTop="35dp"
+                            android:textSize="@dimen/juego_ficha_puntaje"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -154,27 +154,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_height="@dimen/juego_ficha_alto"
+                            android:layout_width="@dimen/juego_ficha_ancho"
+                            android:layout_marginRight="@dimen/juego_ficha_marginRight"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="70sp"
-                            android:paddingRight="27dp"
-                            android:paddingBottom="22dp"
+                            android:textSize="@dimen/juego_ficha_letra"
+                            android:paddingRight="@dimen/juego_ficha_letra_paddingRight"
+                            android:paddingBottom="@dimen/juego_ficha_letra_paddingBottom"
                             android:id="@+id/letra_ficha4" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="20sp"
-                            android:paddingLeft="50dp"
-                            android:paddingTop="35dp"
+                            android:textSize="@dimen/juego_ficha_puntaje"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
                             android:id="@+id/puntaje_ficha4" />
 
                     </RelativeLayout>
@@ -195,27 +195,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_width="@dimen/juego_ficha_ancho"
+                            android:layout_height="@dimen/juego_ficha_alto"
+                            android:layout_marginRight="@dimen/juego_ficha_marginRight"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="70sp"
-                            android:paddingRight="27dp"
-                            android:paddingBottom="22dp"
+                            android:textSize="@dimen/juego_ficha_letra"
+                            android:paddingRight="@dimen/juego_ficha_letra_paddingRight"
+                            android:paddingBottom="@dimen/juego_ficha_letra_paddingBottom"
                             android:id="@+id/letra_ficha5" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="20sp"
-                            android:paddingLeft="50dp"
-                            android:paddingTop="35dp"
+                            android:textSize="@dimen/juego_ficha_puntaje"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
                             android:id="@+id/puntaje_ficha5" />
 
                     </RelativeLayout>
@@ -227,27 +227,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_width="@dimen/juego_ficha_ancho"
+                            android:layout_height="@dimen/juego_ficha_alto"
+                            android:layout_marginRight="@dimen/juego_ficha_marginRight"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="70sp"
-                            android:paddingRight="27dp"
-                            android:paddingBottom="22dp"
+                            android:textSize="@dimen/juego_ficha_letra"
+                            android:paddingRight="@dimen/juego_ficha_letra_paddingRight"
+                            android:paddingBottom="@dimen/juego_ficha_letra_paddingBottom"
                             android:id="@+id/letra_ficha6" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="20sp"
-                            android:paddingLeft="50dp"
-                            android:paddingTop="35dp"
+                            android:textSize="@dimen/juego_ficha_puntaje"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
                             android:id="@+id/puntaje_ficha6" />
 
                     </RelativeLayout>
@@ -259,27 +259,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_width="@dimen/juego_ficha_ancho"
+                            android:layout_height="@dimen/juego_ficha_alto"
+                            android:layout_marginRight="@dimen/juego_ficha_marginRight"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="70sp"
-                            android:paddingRight="27dp"
-                            android:paddingBottom="22dp"
+                            android:textSize="@dimen/juego_ficha_letra"
+                            android:paddingRight="@dimen/juego_ficha_letra_paddingRight"
+                            android:paddingBottom="@dimen/juego_ficha_letra_paddingBottom"
                             android:id="@+id/letra_ficha7" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="20sp"
-                            android:paddingLeft="50dp"
-                            android:paddingTop="35dp"
+                            android:textSize="@dimen/juego_ficha_puntaje"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
                             android:id="@+id/puntaje_ficha7" />
 
                     </RelativeLayout>
@@ -291,27 +291,27 @@
                         android:visibility="invisible">
 
                         <Button
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_width="@dimen/juego_ficha_ancho"
+                            android:layout_height="@dimen/juego_ficha_alto"
+                            android:layout_marginRight="@dimen/juego_ficha_marginRight"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="70sp"
-                            android:paddingRight="27dp"
-                            android:paddingBottom="22dp"
+                            android:textSize="@dimen/juego_ficha_letra"
+                            android:paddingRight="@dimen/juego_ficha_letra_paddingRight"
+                            android:paddingBottom="@dimen/juego_ficha_letra_paddingBottom"
                             android:id="@+id/letra_ficha8" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:textSize="20sp"
-                            android:paddingLeft="50dp"
-                            android:paddingTop="35dp"
+                            android:textSize="@dimen/juego_ficha_puntaje"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
                             android:id="@+id/puntaje_ficha8" />
 
                     </RelativeLayout>
@@ -326,14 +326,14 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/juego_boton_marginRight"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/juego_boton_size"
+                            android:layout_height="@dimen/juego_boton_size"
                             android:id="@+id/btnCambiar"
                             android:background="@drawable/boton_cambiar"
                             android:onClick="cambiarFichas"/>
@@ -341,19 +341,20 @@
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="@dimen/juego_boton_letra"
                             android:text="@string/cambiar_fichas"/>
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/juego_boton_marginRight"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/juego_boton_size"
+                            android:layout_height="@dimen/juego_boton_size"
                             android:id="@+id/btnRetroceder"
                             android:background="@drawable/boton_retroceder"
                             android:onClick="retrocederFicha"/>
@@ -361,44 +362,47 @@
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="@dimen/juego_boton_letra"
                             android:text="@string/retroceder"/>
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/juego_boton_marginRight"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/juego_boton_size"
+                            android:layout_height="@dimen/juego_boton_size"
                             android:id="@+id/btnPasar"
                             android:background="@drawable/boton_pasar"
                             android:onClick="pasarTurno"/>
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="@dimen/juego_boton_letra"
                             android:text="@string/pasar"/>
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/juego_boton_marginRight"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/juego_boton_size"
+                            android:layout_height="@dimen/juego_boton_size"
                             android:id="@+id/btnPlay"
                             android:background="@drawable/boton_play"
                             android:onClick="jugar"/>
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="@dimen/juego_boton_letra"
                             android:text="@string/jugar"/>
 
                     </LinearLayout>
@@ -410,42 +414,36 @@
             <RelativeLayout
                 android:id="@+id/layoutRuleta"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
                 android:layout_weight="1" >
 
                 <Button
-                    android:layout_width="@dimen/ancho_ruleta"
-                    android:layout_height="@dimen/alto_ruleta"
+                    android:layout_width="@dimen/juego_ruleta_ancho"
+                    android:layout_height="@dimen/juego_ruleta_alto"
                     android:id="@+id/imgRuleta"
                     android:background="@drawable/ruleta"/>
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/juego_pin_size"
+                    android:layout_height="@dimen/juego_pin_size"
                     android:background="@drawable/pin_ruleta"
-                    android:layout_marginLeft="340dp"
+                    android:layout_marginLeft="@dimen/juego_pin_marginLeft"
                     android:onClick="girarRuleta"
                     android:id="@+id/pin_ruleta"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:layout_below="@+id/imgRuleta"
-                    android:layout_marginLeft="130dp"
+                    android:layout_marginLeft="@dimen/juego_pin_marginLeft"
+                    android:layout_marginTop="@dimen/juego_sonido_marginTop"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/juego_pin_size"
+                        android:layout_height="@dimen/juego_pin_size"
                         android:background="@drawable/sonido"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:background="@drawable/about"/>
 
                 </LinearLayout>
 
@@ -465,8 +463,8 @@
         android:id="@+id/marco">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/juego_touch_size"
+            android:layout_height="@dimen/juego_touch_size"
             android:background="@drawable/glow"
             android:id="@+id/imgGlow"/>
 
@@ -507,25 +505,25 @@
             android:background="@drawable/borde_turno">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/juego_turno_ancho"
+                android:layout_height="@dimen/juego_turno_alto"
                 android:id="@+id/circ1"
                 android:src="@drawable/cvacio1" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/juego_turno_ancho"
+                android:layout_height="@dimen/juego_turno_alto"
                 android:id="@+id/circ2"
                 android:src="@drawable/clleno1" />
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/juego_turno_ancho"
+                android:layout_height="@dimen/juego_turno_alto"
                 android:id="@+id/circ3"
                 android:layout_toRightOf="@id/circ1"
                 android:src="@drawable/cvacio2" />
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/juego_turno_ancho"
+                android:layout_height="@dimen/juego_turno_alto"
                 android:id="@+id/circ4"
                 android:layout_toRightOf="@id/circ2"
                 android:src="@drawable/clleno2" />
@@ -537,7 +535,7 @@
                 android:layout_centerInParent="true"
                 android:textColor="#663000"
                 android:text="3"
-                android:textSize="65dp"/>
+                android:textSize="@dimen/juego_turno_letra"/>
 
         </RelativeLayout>
 

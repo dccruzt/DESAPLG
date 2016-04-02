@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.connectsdk.discovery.DiscoveryManager;
+import com.connectsdk.service.capability.listeners.ResponseListener;
+import com.connectsdk.service.command.ServiceCommandError;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
 import upc.edu.pe.desaplg.connection.DesaplgListener;
+import upc.edu.pe.desaplg.connection.JsonHelper;
 
 /**
  * Created by Daniela on 23/10/2015.

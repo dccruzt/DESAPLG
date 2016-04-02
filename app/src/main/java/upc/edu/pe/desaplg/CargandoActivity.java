@@ -9,7 +9,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.connectsdk.service.capability.listeners.ResponseListener;
+import com.connectsdk.service.command.ServiceCommandError;
+
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
+import upc.edu.pe.desaplg.connection.JsonHelper;
 
 /**
  * Created by Daniela on 02/02/2016.
@@ -89,6 +93,16 @@ public class CargandoActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.salir(), new ResponseListener<Object>() {
+            @Override
+            public void onError(ServiceCommandError error) {
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+            }
+        });
 
         ConnectionHelper.desaplgListener.setCargandoActivity(null);
         System.gc();

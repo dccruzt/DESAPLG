@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/imgLogoInicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/inicio_logo_size"
+            android:layout_height="@dimen/inicio_logo_size"
             android:background="@drawable/logo_inicio"
             android:padding="30dp"/>
 
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:textSize="40dp" />
+            android:textSize="@dimen/inicio_letra" />
 
     </LinearLayout>
 
@@ -37,8 +37,8 @@
 
         <Button
             android:id="@+id/btnJugar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/inicioJuego_boton_size"
+            android:layout_height="@dimen/inicioJuego_boton_size"
             android:enabled="false"
             android:onClick="iniciarJuego"
             android:background="@drawable/btn_jugar" />

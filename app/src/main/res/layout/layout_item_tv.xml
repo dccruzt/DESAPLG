@@ -5,7 +5,7 @@
 
     <upc.edu.pe.desaplg.view.DesaplgTextView
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/conexion_letra"
+        android:layout_height="@dimen/conexion_barra_alto"
         android:gravity="center"
         android:textSize="@dimen/conexion_letra"
         android:paddingLeft="6dip"

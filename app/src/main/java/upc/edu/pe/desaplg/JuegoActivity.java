@@ -57,11 +57,15 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_juego);
 
         ConnectionHelper.desaplgListener.setJuegoActivity(this);
+
+        //JSONArray json = new JSONArray();
+        //json.put("A");json.put("A");json.put("A");json.put("A");json.put("A");json.put("A");json.put("A");json.put("A");
+        //StatusHelper.fichas = json;
+
         repartirFichas(StatusHelper.fichas.length());
 
         marco = (ViewGroup) findViewById(R.id.marco);
@@ -76,7 +80,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
 
         imgGlow = (ImageView)findViewById(R.id.imgGlow);
         imgRuleta = (Button) findViewById(R.id.imgRuleta);
-        ancho =  getResources().getDimensionPixelSize(R.dimen.ancho_ruleta)/2; alto =  getResources().getDimensionPixelSize(R.dimen.alto_ruleta)/2;
+        ancho =  getResources().getDimensionPixelSize(R.dimen.juego_ruleta_ancho)/2; alto =  getResources().getDimensionPixelSize(R.dimen.juego_ruleta_alto)/2;
         pin = false;
         setearElementos(layoutFichas, false);
         setearElementos(layoutRuleta, false);
@@ -241,6 +245,8 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                 //Se pinta y setea la letra y su respectivo puntaje en cada ficha
                 rlFicha.getChildAt(0).setTag(letra);
                 ((TextView)rlFicha.getChildAt(1)).setText(letra);
+                if(letra.equals("NH"))
+                    ((TextView)rlFicha.getChildAt(1)).setText("Ñ");
                 ((TextView)rlFicha.getChildAt(2)).setText(puntos);
 
                 //Se hace visible la ficha y se le asigna el método onLongClick
@@ -511,7 +517,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                 fichas.put(((RelativeLayout)StatusHelper.fichas_todas.get(i)).getChildAt(0).getTag().toString());
         }
 
-        ConnectionHelper.webAppSession.sendMessage(JsonHelper.cambiarFichas(StatusHelper.fichas), new ResponseListener<Object>() {
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.cambiarFichas(fichas), new ResponseListener<Object>() {
 
             @Override
             public void onError(ServiceCommandError error) {
@@ -521,7 +527,9 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
             public void onSuccess(Object object) {
 
                 StatusHelper.boton = "C";
-                StatusHelper.fichas_movidas.removeAllElements();
+                while (!StatusHelper.fichas_movidas.empty())
+                    StatusHelper.fichas_movidas.pop().setVisibility(View.VISIBLE);
+
                 setearElementos(layoutFichas, false);
             }
         });
@@ -545,6 +553,16 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
 
     @Override
     protected void onDestroy() {
+
+        /*ConnectionHelper.webAppSession.sendMessage(JsonHelper.salir(), new ResponseListener<Object>() {
+            @Override
+            public void onError(ServiceCommandError error) {
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+            }
+        });*/
 
         ConnectionHelper.desaplgListener.setJuegoActivity(null);
         System.gc();

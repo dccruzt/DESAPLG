@@ -14,13 +14,13 @@
 
         <ImageView
             android:id="@+id/imgLogoInicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/inicio_logo_size"
+            android:layout_height="@dimen/inicio_logo_size"
             android:src="@drawable/logo_inicio"
-            android:padding="30dp"/>
+            android:padding="@dimen/inicio_logo_padding"/>
 
         <upc.edu.pe.desaplg.view.DesaplgTextView
-            android:textSize="40dp"
+            android:textSize="@dimen/inicio_letra"
             android:id="@+id/lblBienvenida"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -38,8 +38,8 @@
 
         <ImageView
             android:id="@+id/Avatar_Hombre_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/inicio_avatar_ancho"
+            android:layout_height="@dimen/inicio_avatar_alto"
             android:layout_marginRight="20dp"
             android:onClick="cambiarImagen"
             android:src="@drawable/avatar_h1"
@@ -47,8 +47,8 @@
 
         <ImageView
             android:id="@+id/Avatar_Mujer_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/inicio_avatar_ancho"
+            android:layout_height="@dimen/inicio_avatar_alto"
             android:layout_marginRight="20dp"
             android:onClick="cambiarImagen"
             android:src="@drawable/avatar_m1"
@@ -56,8 +56,8 @@
 
         <ImageView
             android:id="@+id/Avatar_Hombre_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/inicio_avatar_ancho"
+            android:layout_height="@dimen/inicio_avatar_alto"
             android:layout_marginRight="20dp"
             android:onClick="cambiarImagen"
             android:src="@drawable/avatar_h2"
@@ -65,8 +65,8 @@
 
         <ImageView
             android:id="@+id/Avatar_Mujer_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/inicio_avatar_ancho"
+            android:layout_height="@dimen/inicio_avatar_alto"
             android:onClick="cambiarImagen"
             android:src="@drawable/avatar_m2"
             android:background="@drawable/seleccionado" />
@@ -98,9 +98,9 @@
 
         <upc.edu.pe.desaplg.view.DesaplgEditText
             android:id="@+id/txtConectar"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:padding="10dp"
+            android:layout_width="@dimen/inicio_caja_ancho"
+            android:layout_height="@dimen/inicio_caja_alto"
+            android:padding="@dimen/inicio_caja_padding"
             android:background="@drawable/txt_nombre"
             android:layout_marginBottom="10dp"
             android:inputType="textPersonName"
@@ -108,13 +108,12 @@
             android:layout_gravity="center_horizontal"
             android:textColor="#989898"
             android:textColorHint="#989898"
-            android:maxLength="15"
-            android:ems="11"/>
+            android:maxLength="15" />
 
         <upc.edu.pe.desaplg.view.DesaplgButton
             android:id="@+id/btnConectar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/inicio_boton_ancho"
+            android:layout_height="@dimen/inicio_boton_alto"
             android:onClick="conectar"
             android:background="@drawable/btn_conectar"
             android:text="@string/boton_conectar"

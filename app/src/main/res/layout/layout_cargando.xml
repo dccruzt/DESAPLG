@@ -16,8 +16,9 @@
         android:id="@+id/lblCargando"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/cargando_letra_marginTop"
         android:text="CARGANDO"
-        android:textSize="42dp"
+        android:textSize="@dimen/inicio_letra"
         android:textColor="#fff"/>
 
     <LinearLayout
@@ -25,49 +26,49 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lblCargando"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="@dimen/cargando_punto_marginTop"
         android:orientation="horizontal">
 
         <View
             android:id="@+id/vCargando0"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginRight="16dp"
+            android:layout_width="@dimen/cargando_punto_size"
+            android:layout_height="@dimen/cargando_punto_size"
+            android:layout_marginRight="@dimen/cargando_punto_marginRight"
             android:background="@drawable/cargando"/>
         <View
             android:id="@+id/vCargando1"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginRight="16dp"
+            android:layout_width="@dimen/cargando_punto_size"
+            android:layout_height="@dimen/cargando_punto_size"
+            android:layout_marginRight="@dimen/cargando_punto_marginRight"
             android:background="@drawable/cargando"/>
         <View
             android:id="@+id/vCargando2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginRight="16dp"
+            android:layout_width="@dimen/cargando_punto_size"
+            android:layout_height="@dimen/cargando_punto_size"
+            android:layout_marginRight="@dimen/cargando_punto_marginRight"
             android:background="@drawable/cargando"/>
         <View
             android:id="@+id/vCargando3"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginRight="16dp"
+            android:layout_width="@dimen/cargando_punto_size"
+            android:layout_height="@dimen/cargando_punto_size"
+            android:layout_marginRight="@dimen/cargando_punto_marginRight"
             android:background="@drawable/cargando"/>
         <View
             android:id="@+id/vCargando4"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginRight="16dp"
+            android:layout_width="@dimen/cargando_punto_size"
+            android:layout_height="@dimen/cargando_punto_size"
+            android:layout_marginRight="@dimen/cargando_punto_marginRight"
             android:background="@drawable/cargando"/>
         <View
             android:id="@+id/vCargando5"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginRight="16dp"
+            android:layout_width="@dimen/cargando_punto_size"
+            android:layout_height="@dimen/cargando_punto_size"
+            android:layout_marginRight="@dimen/cargando_punto_marginRight"
             android:background="@drawable/cargando"/>
         <View
             android:id="@+id/vCargando6"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/cargando_punto_size"
+            android:layout_height="@dimen/cargando_punto_size"
             android:background="@drawable/cargando"/>
 
     </LinearLayout>

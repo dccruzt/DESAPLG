@@ -138,22 +138,11 @@ public class InicioActivity extends Activity{
     }
 
     @Override
-    public void finish() {
-
-        Log.e("ondestroy","se cerró");
-        ConnectionHelper.webAppSession.sendMessage(JsonHelper.salir(), new ResponseListener<Object>() {
-            @Override
-            public void onError(ServiceCommandError error) {
-            }
-
-            @Override
-            public void onSuccess(Object object) {
-            }
-        });
+    protected void onDestroy() {
 
         ConnectionHelper.desaplgListener.setInicioActivity(null);
-        super.finish();
-        //System.gc();
+        System.gc();
+        super.onDestroy();
     }
 
     @Override

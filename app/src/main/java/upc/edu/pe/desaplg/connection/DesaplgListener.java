@@ -1,22 +1,18 @@
 package upc.edu.pe.desaplg.connection;
 
 import android.content.Intent;
-import android.widget.ImageButton;
 
 import com.connectsdk.service.sessions.WebAppSession;
 import com.connectsdk.service.sessions.WebAppSessionListener;
 
 import upc.edu.pe.desaplg.CargandoActivity;
 import upc.edu.pe.desaplg.ConexionActivity;
-import upc.edu.pe.desaplg.CreditosActivity;
 import upc.edu.pe.desaplg.InicioActivity;
 import upc.edu.pe.desaplg.InicioJuegoActivity;
 import upc.edu.pe.desaplg.JuegoActivity;
-import upc.edu.pe.desaplg.R;
 import upc.edu.pe.desaplg.SplashActivity;
 import upc.edu.pe.desaplg.helpers.StatusHelper;
 import upc.edu.pe.desaplg.helpers.StringsHelper;
-import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,20 +24,11 @@ import org.json.JSONObject;
 public class DesaplgListener implements WebAppSessionListener {
 
     private ConexionActivity conexionActivity;
-    private CreditosActivity creditosActivity;
     private InicioActivity inicioActivity;
     private InicioJuegoActivity inicioJuegoActivity;
     private JuegoActivity juegoActivity;
     private SplashActivity splashActivity;
     private CargandoActivity cargandoActivity;
-
-    public CreditosActivity getCreditosActivity() {
-        return creditosActivity;
-    }
-
-    public void setCreditosActivity(CreditosActivity creditosActivity) {
-        this.creditosActivity = creditosActivity;
-    }
 
     public InicioActivity getInicioActivity() {
         return inicioActivity;

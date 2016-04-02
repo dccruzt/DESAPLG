@@ -31,6 +31,7 @@ public class InicioJuegoActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_iniciojuego);
 
@@ -72,6 +73,16 @@ public class InicioJuegoActivity extends Activity {
 
     @Override
     protected void onDestroy() {
+
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.salir(), new ResponseListener<Object>() {
+            @Override
+            public void onError(ServiceCommandError error) {
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+            }
+        });
 
         ConnectionHelper.desaplgListener.setInicioJuegoActivity(null);
         System.gc();

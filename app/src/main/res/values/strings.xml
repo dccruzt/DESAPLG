@@ -9,8 +9,8 @@
     <string name="textbox_conectar">NOMBRE JUGADOR</string>
     <string name="inicio">, SI DESEAS EMPEZAR EL JUEGO\nPRESIONA JUGAR</string>
 
-    <string name="cambiar_fichas">CAMBIAR\nFICHAS</string>
-    <string name="retroceder">RETROCEDER</string>
+    <string name="cambiar_fichas">CAMBIAR</string>
+    <string name="retroceder">DESHACER</string>
     <string name="pasar">PASAR</string>
     <string name="jugar">JUGAR</string>
     <string name="turno">\nTU TURNO EMPIEZA EN</string>
