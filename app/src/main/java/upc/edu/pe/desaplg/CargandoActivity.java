@@ -3,6 +3,7 @@ package upc.edu.pe.desaplg;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -14,6 +15,7 @@ import com.connectsdk.service.command.ServiceCommandError;
 
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
 import upc.edu.pe.desaplg.connection.JsonHelper;
+import upc.edu.pe.desaplg.helpers.StatusHelper;
 
 /**
  * Created by Daniela on 02/02/2016.
@@ -22,6 +24,7 @@ public class CargandoActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_cargando);
 
@@ -94,19 +97,11 @@ public class CargandoActivity extends Activity {
     @Override
     protected void onDestroy() {
 
-        ConnectionHelper.webAppSession.sendMessage(JsonHelper.salir(), new ResponseListener<Object>() {
-            @Override
-            public void onError(ServiceCommandError error) {
-            }
-
-            @Override
-            public void onSuccess(Object object) {
-            }
-        });
-
+        Log.e("", "cargandooo");
         ConnectionHelper.desaplgListener.setCargandoActivity(null);
-        System.gc();
         super.onDestroy();
+        StatusHelper.unbindDrawables(findViewById(R.id.layoutCargando));
+        System.gc();
     }
 
     @Override

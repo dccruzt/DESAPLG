@@ -18,43 +18,40 @@
 
     <dimen name="inicio_letra">30dp</dimen>
     <dimen name="inicio_logo_size">90dp</dimen>
-    <dimen name="inicio_logo_padding">10dp</dimen>
     <dimen name="inicio_avatar_ancho">153dp</dimen>
     <dimen name="inicio_avatar_alto">154dp</dimen>
-    <dimen name="inicio_caja_padding">10dp</dimen>
-    <dimen name="inicio_caja_ancho">150dp</dimen>
-    <dimen name="inicio_caja_alto">50dp</dimen>
-    <dimen name="inicio_boton_ancho">239dp</dimen>
-    <dimen name="inicio_boton_alto">64dp</dimen>
+    <dimen name="inicio_caja_padding">8dp</dimen>
+    <dimen name="inicio_caja_ancho">200dp</dimen>
+    <dimen name="inicio_caja_alto">45dp</dimen>
+    <dimen name="inicio_boton_alto">52dp</dimen>
 
     <dimen name="inicioJuego_boton_size">273dp</dimen>
 
     <dimen name="juego_categoria">30dp</dimen>
-    <dimen name="juego_categoria_ancho">239dp</dimen>
+    <dimen name="juego_categoria_ancho">235dp</dimen>
     <dimen name="juego_categoria_alto">114dp</dimen>
-    <dimen name="juego_ficha_ancho">110dp</dimen>
-    <dimen name="juego_ficha_alto">96dp</dimen>
-    <dimen name="juego_ficha_marginRight">20dp</dimen>
-    <dimen name="juego_ficha_letra">70sp</dimen>
-    <dimen name="juego_ficha_letra_paddingRight">27dp</dimen>
-    <dimen name="juego_ficha_letra_paddingBottom">22dp</dimen>
-    <dimen name="juego_ficha_puntaje">20sp</dimen>
-    <dimen name="juego_ficha_puntaje_paddingLeft">50dp</dimen>
-    <dimen name="juego_ficha_puntaje_paddingTop">35dp</dimen>
-    <dimen name="juego_boton_size">80dp</dimen>
-    <dimen name="juego_boton_letra">12sp</dimen>
-    <dimen name="juego_boton_marginRight">115dp</dimen>
+    <dimen name="juego_ficha_ancho">85dp</dimen>
+    <dimen name="juego_ficha_alto">74dp</dimen>
+    <dimen name="juego_ficha_marginRight">15dp</dimen>
+    <dimen name="juego_ficha_letra">45sp</dimen>
+    <dimen name="juego_ficha_letra_paddingRight">25dp</dimen>
+    <dimen name="juego_ficha_letra_paddingBottom">6dp</dimen>
+    <dimen name="juego_ficha_puntaje">14sp</dimen>
+    <dimen name="juego_ficha_puntaje_paddingLT">38dp</dimen>
+    <dimen name="juego_boton_size">59dp</dimen>
+    <dimen name="juego_boton_letra">15sp</dimen>
+    <dimen name="juego_boton_marginRight">85dp</dimen>
     <dimen name="juego_ruleta_ancho">270dp</dimen>
     <dimen name="juego_ruleta_alto">270dp</dimen>
-    <dimen name="juego_pin_size">42dp</dimen>
-    <dimen name="juego_pin_marginLeft">240dp</dimen>
+    <dimen name="juego_pin_size">30dp</dimen>
+    <dimen name="juego_pin_marginLeft">230dp</dimen>
     <dimen name="juego_sonido_marginTop">20dp</dimen>
-    <dimen name="juego_turno_ancho">60dp</dimen>
-    <dimen name="juego_turno_alto">120dp</dimen>
-    <dimen name="juego_turno_letra">65dp</dimen>
+    <dimen name="juego_turno_ancho">45dp</dimen>
+    <dimen name="juego_turno_alto">90dp</dimen>
+    <dimen name="juego_turno_letra">35sp</dimen>
     <dimen name="juego_touch_size">150dp</dimen>
 
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="finalJuego_trofeo_ancho">248dp</dimen>
+    <dimen name="finalJuego_trofeo_alto">225dp</dimen>
 
 </resources>

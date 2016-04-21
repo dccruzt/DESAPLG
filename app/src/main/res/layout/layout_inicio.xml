@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutInicio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/fondo_inicio"
-    android:padding="20dp" >
+    android:padding="@dimen/cargando_punto_marginTop" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,8 +17,7 @@
             android:id="@+id/imgLogoInicio"
             android:layout_width="@dimen/inicio_logo_size"
             android:layout_height="@dimen/inicio_logo_size"
-            android:src="@drawable/logo_inicio"
-            android:padding="@dimen/inicio_logo_padding"/>
+            android:src="@drawable/logo_inicio" />
 
         <upc.edu.pe.desaplg.view.DesaplgTextView
             android:textSize="@dimen/inicio_letra"
@@ -77,8 +77,8 @@
             android:layout_gravity="top">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/juego_turno_ancho"
+                android:layout_height="@dimen/juego_turno_ancho"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/about"
                 android:onClick="mostrarCreditos"/>
@@ -106,17 +106,19 @@
             android:inputType="textPersonName"
             android:hint="@string/textbox_conectar"
             android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/juego_boton_letra"
             android:textColor="#989898"
             android:textColorHint="#989898"
             android:maxLength="15" />
 
         <upc.edu.pe.desaplg.view.DesaplgButton
             android:id="@+id/btnConectar"
-            android:layout_width="@dimen/inicio_boton_ancho"
+            android:layout_width="@dimen/inicio_caja_ancho"
             android:layout_height="@dimen/inicio_boton_alto"
             android:onClick="conectar"
             android:background="@drawable/btn_conectar"
             android:text="@string/boton_conectar"
+            android:textSize="@dimen/juego_boton_letra"
             android:textColor="#522F18" />
 
     </LinearLayout>

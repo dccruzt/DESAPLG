@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutFinalJuego"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/cargando_punto_marginTop"
+    android:background="@drawable/fondo_inicio">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/imgLogoInicio"
+            android:layout_width="@dimen/inicio_logo_size"
+            android:layout_height="@dimen/inicio_logo_size"
+            android:src="@drawable/logo_inicio" />
+
+        <upc.edu.pe.desaplg.view.DesaplgTextView
+            android:textSize="@dimen/inicio_letra"
+            android:id="@+id/lblFinalJuego"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="3">
+
+        <ImageView
+            android:layout_width="@dimen/finalJuego_trofeo_ancho"
+            android:layout_height="@dimen/finalJuego_trofeo_alto"
+            android:src="@drawable/trofeo"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <upc.edu.pe.desaplg.view.DesaplgButton
+                android:id="@+id/btnSalir"
+                android:layout_width="@dimen/inicio_caja_ancho"
+                android:layout_height="@dimen/inicio_boton_alto"
+                android:layout_marginRight="50dp"
+                android:onClick="salir"
+                android:background="@drawable/btn_conectar"
+                android:text="@string/boton_salir"
+                android:textSize="@dimen/juego_boton_letra"
+                android:textColor="#522F18" />
+
+            <upc.edu.pe.desaplg.view.DesaplgButton
+                android:id="@+id/btnVolver"
+                android:layout_width="@dimen/inicio_caja_ancho"
+                android:layout_height="@dimen/inicio_boton_alto"
+                android:onClick="volverAjugar"
+                android:background="@drawable/btn_conectar"
+                android:text="@string/boton_volver"
+                android:textSize="@dimen/juego_boton_letra"
+                android:textColor="#522F18" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

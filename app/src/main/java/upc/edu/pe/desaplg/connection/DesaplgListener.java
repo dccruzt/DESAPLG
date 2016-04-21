@@ -1,19 +1,17 @@
 package upc.edu.pe.desaplg.connection;
 
 import android.content.Intent;
-
 import com.connectsdk.service.sessions.WebAppSession;
 import com.connectsdk.service.sessions.WebAppSessionListener;
-
 import upc.edu.pe.desaplg.CargandoActivity;
 import upc.edu.pe.desaplg.ConexionActivity;
+import upc.edu.pe.desaplg.FinalJuegoActivity;
 import upc.edu.pe.desaplg.InicioActivity;
 import upc.edu.pe.desaplg.InicioJuegoActivity;
 import upc.edu.pe.desaplg.JuegoActivity;
 import upc.edu.pe.desaplg.SplashActivity;
 import upc.edu.pe.desaplg.helpers.StatusHelper;
 import upc.edu.pe.desaplg.helpers.StringsHelper;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +27,7 @@ public class DesaplgListener implements WebAppSessionListener {
     private JuegoActivity juegoActivity;
     private SplashActivity splashActivity;
     private CargandoActivity cargandoActivity;
+    private FinalJuegoActivity finalJuegoActivity;
 
     public InicioActivity getInicioActivity() {
         return inicioActivity;
@@ -78,6 +77,13 @@ public class DesaplgListener implements WebAppSessionListener {
         this.cargandoActivity = cargandoActivity;
     }
 
+    public FinalJuegoActivity getFinalJuegoActivity() {
+        return finalJuegoActivity;
+    }
+
+    public void setFinalJuegoActivity(FinalJuegoActivity finalJuegoActivity) {
+        this.finalJuegoActivity = finalJuegoActivity;
+    }
 
     @Override
     public void onReceiveMessage(WebAppSession webAppSession, Object o) {
@@ -88,6 +94,12 @@ public class DesaplgListener implements WebAppSessionListener {
 
             if(json.getString("accion").equals(StringsHelper.PUEDE_INICIAR))
                 activaBotonIniciar();
+
+            else if(json.getString("accion").equals(StringsHelper.CONEXION_EXITOSA))
+                conexionExitosa();
+
+            else if(json.getString("accion").equals(StringsHelper.LIMITE_JUGADORES))
+                limiteJugadores();
 
             else if(json.getString("accion").equals(StringsHelper.CARGAR_INICIO))
                 cargarInicio();
@@ -109,6 +121,12 @@ public class DesaplgListener implements WebAppSessionListener {
 
             else if (json.getString("accion").equals(StringsHelper.INICIAR_JUEGO))
                 iniciarJuego();
+
+            else if (json.getString("accion").equals(StringsHelper.GANADOR_JUEGO))
+                ganadorJuego(json.getJSONArray("resultado"));
+
+            else if (json.getString("accion").equals(StringsHelper.CARGAR_NUEVO_INICIO))
+                cargarNuevoInicio();
 
             else if (json.getString("accion").equals(StringsHelper.CERRAR_APLICACION))
                 cerrarAplicacion(json.getBoolean("resultado"));
@@ -133,8 +151,20 @@ public class DesaplgListener implements WebAppSessionListener {
 
     public void cargarInicio(){
 
-        Intent i = new Intent(cargandoActivity, InicioActivity.class);
-        cargandoActivity.startActivity(i);
+        if(cargandoActivity != null) {
+            Intent i = new Intent(cargandoActivity, InicioActivity.class);
+            cargandoActivity.startActivity(i);
+            cargandoActivity.finish();
+        }
+    }
+
+    public void cargarNuevoInicio(){
+
+        if(finalJuegoActivity != null) {
+            Intent i = new Intent(finalJuegoActivity, InicioActivity.class);
+            finalJuegoActivity.startActivity(i);
+            finalJuegoActivity.finish();
+        }
     }
 
     public void cargarJuego(JSONArray fichas){
@@ -142,6 +172,7 @@ public class DesaplgListener implements WebAppSessionListener {
         StatusHelper.fichas = fichas;
         Intent i = new Intent(inicioJuegoActivity, JuegoActivity.class);
         inicioJuegoActivity.startActivity(i);
+        inicioJuegoActivity.finish();
     }
 
     public void empezarTurno(boolean turno){
@@ -182,9 +213,43 @@ public class DesaplgListener implements WebAppSessionListener {
         }
     }
 
+    public void ganadorJuego(JSONArray ganadores) throws JSONException{
+
+        String lblFinal = "";
+        String nombres = "";
+
+        for (int i = 0; i < ganadores.length(); i++)
+            if(i > 0)
+                nombres += " Y " + ganadores.getString(i);
+            else
+                nombres = ganadores.getString(i);
+
+
+        if(ganadores.length() > 1)
+            lblFinal = "¡FELICITACIONES A " + nombres + "!\n¡SON LOS GANADORES DE TIE-A-WORD!";
+        else
+            lblFinal = "¡FELICITACIONES A " + nombres + "!\n¡ES EL GANADOR DE TIE-A-WORD!";
+
+        Intent i = new Intent(juegoActivity, FinalJuegoActivity.class);
+        i.putExtra("mensaje", lblFinal);
+        juegoActivity.startActivity(i);
+        juegoActivity.finish();
+    }
+
     public void cerrarAplicacion(boolean cerrarWebapp){
 
         ConnectionHelper.cerrarAplicacion(cerrarWebapp);
+    }
 
+    public void conexionExitosa(){
+
+        if(inicioActivity != null)
+            inicioActivity.conexionExitosa();
+    }
+
+    public void limiteJugadores(){
+
+        if(inicioActivity != null)
+            inicioActivity.limiteJugadores();
     }
 }

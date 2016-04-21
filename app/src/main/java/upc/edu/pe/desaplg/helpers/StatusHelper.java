@@ -1,7 +1,9 @@
 package upc.edu.pe.desaplg.helpers;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.AdapterView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,6 +26,7 @@ public class StatusHelper {
     public static Stack<View> fichas_movidas = new Stack<View>();
     public static List<View> fichas_todas = new ArrayList<View>();
     public static String boton;
+    public static boolean conexionExitosa = false;
 
     public static JSONObject categoria(){
 
@@ -69,7 +72,7 @@ public class StatusHelper {
                     put("LL", "8");
                     put("M", "3");
                     put("N", "1");
-                    put("Ñ", "8");
+                    put("NH", "8");
                     put("O", "1");
                     put("P", "3");
                     put("Q", "5");
@@ -89,6 +92,22 @@ public class StatusHelper {
 
         }catch(JSONException ex){
             return null;
+        }
+    }
+
+    public static void unbindDrawables(View view)
+    {
+        if (view.getBackground() != null)
+        {
+            view.getBackground().setCallback(null);
+        }
+        if (view instanceof ViewGroup && !(view instanceof AdapterView))
+        {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++)
+            {
+                unbindDrawables(((ViewGroup) view).getChildAt(i));
+            }
+            ((ViewGroup) view).removeAllViews();
         }
     }
 }

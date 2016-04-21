@@ -259,4 +259,36 @@ public class JsonHelper {
             return null;
         }
     }
+
+    public static JSONObject volverAjugar(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.VOLVER_A_JUGAR);
+                    put(StringsHelper.RESULTADO, "");
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
+
+    public static JSONObject reproducirSonido(){
+
+        try {
+            JSONObject json = new JSONObject() {
+                {
+                    put(StringsHelper.ACCION, StringsHelper.REPRODUCIR_SONIDO);
+                    put(StringsHelper.RESULTADO, "");
+                }
+            };
+            return json;
+
+        }catch(JSONException ex){
+            return null;
+        }
+    }
 }

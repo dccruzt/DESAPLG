@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutJuego"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:keepScreenOn="true">
@@ -15,12 +15,13 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/conexion_letra_marginTop">
 
             <ImageView
+                android:id="@+id/categoria"
                 android:layout_width="@dimen/juego_categoria_ancho"
                 android:layout_height="@dimen/juego_categoria_alto"
-                android:id="@+id/categoria"
                 android:background="@drawable/categoria"/>
 
             <upc.edu.pe.desaplg.view.DesaplgTextView
@@ -77,8 +78,8 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:textSize="@dimen/juego_ficha_puntaje"
-                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
-                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLT"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingLT"
                             android:id="@+id/puntaje_ficha1" />
 
                     </RelativeLayout>
@@ -109,8 +110,8 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:textSize="@dimen/juego_ficha_puntaje"
-                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
-                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLT"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingLT"
                             android:id="@+id/puntaje_ficha2" />
 
                     </RelativeLayout>
@@ -138,8 +139,8 @@
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
                             android:textSize="@dimen/juego_ficha_puntaje"
-                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
-                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLT"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingLT"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -173,8 +174,8 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:textSize="@dimen/juego_ficha_puntaje"
-                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
-                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLT"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingLT"
                             android:id="@+id/puntaje_ficha4" />
 
                     </RelativeLayout>
@@ -214,8 +215,8 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:textSize="@dimen/juego_ficha_puntaje"
-                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
-                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLT"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingLT"
                             android:id="@+id/puntaje_ficha5" />
 
                     </RelativeLayout>
@@ -246,8 +247,8 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:textSize="@dimen/juego_ficha_puntaje"
-                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
-                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLT"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingLT"
                             android:id="@+id/puntaje_ficha6" />
 
                     </RelativeLayout>
@@ -278,8 +279,8 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:textSize="@dimen/juego_ficha_puntaje"
-                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
-                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLT"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingLT"
                             android:id="@+id/puntaje_ficha7" />
 
                     </RelativeLayout>
@@ -310,8 +311,8 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:textSize="@dimen/juego_ficha_puntaje"
-                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLeft"
-                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingTop"
+                            android:paddingLeft="@dimen/juego_ficha_puntaje_paddingLT"
+                            android:paddingTop="@dimen/juego_ficha_puntaje_paddingLT"
                             android:id="@+id/puntaje_ficha8" />
 
                     </RelativeLayout>
@@ -338,7 +339,7 @@
                             android:background="@drawable/boton_cambiar"
                             android:onClick="cambiarFichas"/>
 
-                        <upc.edu.pe.desaplg.view.DesaplgTextView
+                        .<upc.edu.pe.desaplg.view.DesaplgTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/juego_boton_letra"
@@ -432,26 +433,27 @@
                     android:onClick="girarRuleta"
                     android:id="@+id/pin_ruleta"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/imgRuleta"
-                    android:layout_marginLeft="@dimen/juego_pin_marginLeft"
-                    android:layout_marginTop="@dimen/juego_sonido_marginTop"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="@dimen/juego_pin_size"
-                        android:layout_height="@dimen/juego_pin_size"
-                        android:background="@drawable/sonido"/>
-
-                </LinearLayout>
-
             </RelativeLayout>
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|end">
+
+        <Button
+            android:id="@+id/btnSonido"
+            android:layout_width="@dimen/juego_turno_ancho"
+            android:layout_height="@dimen/juego_turno_ancho"
+            android:background="@drawable/sonido"
+            android:layout_marginBottom="@dimen/juego_ficha_alto"
+            android:layout_marginRight="@dimen/juego_ficha_alto"
+            android:onClick="reproducirSonido" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -494,7 +496,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="42dp"
+            android:textSize="@dimen/juego_turno_letra"
             android:layout_marginBottom="30dp"
             android:text="@string/turno" />
 

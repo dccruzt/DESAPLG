@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
@@ -13,22 +12,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Button;
-
 import com.connectsdk.service.capability.listeners.ResponseListener;
 import com.connectsdk.service.command.ServiceCommandError;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.lang.reflect.Field;
-
 import upc.edu.pe.desaplg.connection.JsonHelper;
-import upc.edu.pe.desaplg.helpers.FontHelper;
-
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
 import upc.edu.pe.desaplg.helpers.StatusHelper;
 
@@ -48,35 +36,43 @@ public class InicioActivity extends Activity{
         ConnectionHelper.desaplgListener.setInicioActivity(this);
     }
 
-    public void conectar(View v){
+    public void conectar(View v) {
 
-        final EditText nombreJugador = (EditText)findViewById(R.id.txtConectar);
+        final EditText nombreJugador = (EditText) findViewById(R.id.txtConectar);
 
-        if(nombreJugador.getText().toString().trim().length() == 0 || nombreAvatar.trim().length() == 0) {
+        if (nombreJugador.getText().toString().trim().length() == 0 || nombreAvatar.trim().length() == 0) {
             Toast toast = Toast.makeText(getApplicationContext(), "Debe ingresar un nombre y elegir un avatar para conectarse", 2);
             toast.show();
-        }
-        else {
+        } else {
             ConnectionHelper.webAppSession.sendMessage(JsonHelper.ConectarJugador(nombreJugador.getText().toString(), nombreAvatar),
                     new ResponseListener<Object>() {
-                @Override
-                public void onSuccess(Object o) {
+                        @Override
+                        public void onSuccess(Object o) {
 
-                    Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "Conectado", 2);
-                    toast.show();
+                            StatusHelper.nombreJugador = nombreJugador.getText().toString();
+                            nombreJugador.setText("");
+                        }
 
-                    StatusHelper.nombreJugador = nombreJugador.getText().toString();
-                    nombreJugador.setText("");
-
-                    Intent i = new Intent(InicioActivity.this, InicioJuegoActivity.class);
-                    startActivity(i);
-                }
-                @Override
-                public void onError(ServiceCommandError serviceCommandError) {
-                }
-            });
+                        @Override
+                        public void onError(ServiceCommandError serviceCommandError) {
+                        }
+                    });
         }
+    }
+
+    public void conexionExitosa(){
+
+        StatusHelper.conexionExitosa = true;
+        Intent i = new Intent(InicioActivity.this, InicioJuegoActivity.class);
+        startActivity(i);
+        finish();
+
+    }
+
+    public void limiteJugadores(){
+
+        Toast toast = Toast.makeText(getApplicationContext(), "Usted no se puede conectar porque ha execdido la cantidad de jugadores posibles.", 4);
+        toast.show();
     }
 
     public void cambiarImagen(View image) {
@@ -140,9 +136,11 @@ public class InicioActivity extends Activity{
     @Override
     protected void onDestroy() {
 
+        Log.e("", "inicioooooooooooooooooo");
         ConnectionHelper.desaplgListener.setInicioActivity(null);
-        System.gc();
         super.onDestroy();
+        StatusHelper.unbindDrawables(findViewById(R.id.layoutInicio));
+        System.gc();
     }
 
     @Override

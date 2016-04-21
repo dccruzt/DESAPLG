@@ -4,9 +4,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="seleccion_webOS">SELECCIONAR webOS TV</string>
+
     <string name="bienvenida">BIENVENIDO A TIE-A-WORD\nCOLOCA TU NOMBRE PARA INGRESAR</string>
     <string name="boton_conectar">CONECTAR</string>
     <string name="textbox_conectar">NOMBRE JUGADOR</string>
+
     <string name="inicio">, SI DESEAS EMPEZAR EL JUEGO\nPRESIONA JUGAR</string>
 
     <string name="cambiar_fichas">CAMBIAR</string>
@@ -14,4 +16,7 @@
     <string name="pasar">PASAR</string>
     <string name="jugar">JUGAR</string>
     <string name="turno">\nTU TURNO EMPIEZA EN</string>
+
+    <string name="boton_salir">SALIR</string>
+    <string name="boton_volver">VOLVER A JUGAR</string>
 </resources>

@@ -3,40 +3,28 @@ package upc.edu.pe.desaplg;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.database.DataSetObserver;
-import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
-
 import com.connectsdk.device.ConnectableDevice;
 import com.connectsdk.device.DevicePicker;
-import com.connectsdk.discovery.DiscoveryManager;
 import com.connectsdk.service.WebOSTVService;
 import com.connectsdk.service.capability.listeners.ResponseListener;
 import com.connectsdk.service.command.ServiceCommandError;
 import com.connectsdk.service.sessions.WebAppSession;
-import com.connectsdk.service.sessions.WebAppSessionListener;
-
-import java.sql.Connection;
-import java.util.Locale;
-
 import upc.edu.pe.desaplg.adapter.TVAdapter;
 import upc.edu.pe.desaplg.connection.ConnectionHelper;
-import upc.edu.pe.desaplg.connection.DesaplgListener;
 import upc.edu.pe.desaplg.connection.JsonHelper;
-import upc.edu.pe.desaplg.helpers.FontHelper;
+import upc.edu.pe.desaplg.helpers.StatusHelper;
 
 public class ConexionActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.layout_conexion);
@@ -60,8 +48,8 @@ public class ConexionActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    ConnectionHelper.connectableDevice = (ConnectableDevice)parent.getItemAtPosition(position);
-                    ConnectionHelper.webOSTVService = (WebOSTVService)ConnectionHelper.connectableDevice.getServiceByName("webOS TV");
+                    ConnectionHelper.connectableDevice = (ConnectableDevice) parent.getItemAtPosition(position);
+                    ConnectionHelper.webOSTVService = (WebOSTVService) ConnectionHelper.connectableDevice.getServiceByName("webOS TV");
                     ConnectionHelper.webOSTVService.connect();
 
                     ConnectionHelper.webOSTVService.joinWebApp("desaplg", new WebAppSession.LaunchListener() {
@@ -91,8 +79,9 @@ public class ConexionActivity extends Activity {
                     Intent i = new Intent(ConexionActivity.this, CargandoActivity.class);
                     i.putExtra("mensaje", "Conectando dispositivo...");
                     startActivity(i);
+                    finish();
 
-                }catch(Exception ex){
+                } catch (Exception ex) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
                     builder.setTitle("Tie a word");
                     builder.setMessage("No se pudo conectar a la TV. Verifica que se encuentre encendida y vuele a iniciar Tie a word.");
@@ -119,9 +108,11 @@ public class ConexionActivity extends Activity {
     @Override
     protected void onDestroy() {
 
+        Log.e("", "conexionnnnnnnnnn");
         ConnectionHelper.desaplgListener.setConexionActivity(null);
-        System.gc();
         super.onDestroy();
+        StatusHelper.unbindDrawables(findViewById(R.id.layoutConexion));
+        System.gc();
     }
 
     @Override

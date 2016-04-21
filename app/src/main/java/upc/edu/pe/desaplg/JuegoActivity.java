@@ -2,6 +2,7 @@ package upc.edu.pe.desaplg;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -53,6 +54,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
     ImageView imgGlow;
     boolean movimientoActivo = false;
     VelocityTracker vTracker = null;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +65,12 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         ConnectionHelper.desaplgListener.setJuegoActivity(this);
 
         //JSONArray json = new JSONArray();
-        //json.put("A");json.put("A");json.put("A");json.put("A");json.put("A");json.put("A");json.put("A");json.put("A");
+        //json.put("A");json.put("CH");json.put("NH");json.put("A");json.put("RR");json.put("E");json.put("NH");json.put("A");
         //StatusHelper.fichas = json;
 
         repartirFichas(StatusHelper.fichas.length());
 
+        mp = MediaPlayer.create(JuegoActivity.this, R.raw.turno);
         marco = (ViewGroup) findViewById(R.id.marco);
         marcoTurno = (ViewGroup) findViewById(R.id.marcoTurno);
         marcoAnimacion = (ViewGroup) findViewById(R.id.marcoAnimacion);
@@ -100,6 +103,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
             pin = true;
             setearElementos(layoutRuleta, true);
             animarPinRuleta();
+            mp.start();
         }
     }
 
@@ -116,8 +120,6 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         final ImageView circ2 = (ImageView) findViewById(R.id.circ2);
 
         anim1.setAnimationListener(new Animation.AnimationListener() {
-
-            int duracion = 3;
 
             @Override
             public void onAnimationStart(Animation animation) {
@@ -139,8 +141,8 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                     @Override
                     public void onAnimationEnd(Animation animation) {
 
-                        tiempoTurno.setText(String.valueOf(tiempo));
                         tiempo--;
+                        tiempoTurno.setText(String.valueOf(tiempo));
                         circ2.clearAnimation();
                         if(tiempo > 0) {
                             circ4.setVisibility(View.VISIBLE);
@@ -148,11 +150,11 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                         }
                         else
                         {
-                            //circ2.setVisibility(View.INVISIBLE);
                             marcoTurno.setVisibility(View.INVISIBLE);
                             marcoAnimacion.setVisibility(View.INVISIBLE);
                             setearElementos(layoutFichas, true);
                             tiempo = 3;
+                            tiempoTurno.setText(String.valueOf(tiempo));
                         }
                     }
 
@@ -209,6 +211,9 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
             if (child instanceof ViewGroup) {
                 setearElementos((ViewGroup) child, estado);
             } else {
+
+                child.setEnabled(estado);
+
                 if(!estado){
                     if(child instanceof Button)
                         ((Button)child).getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
@@ -220,8 +225,6 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
                     if(child instanceof TextView)
                         ((TextView)child).setTextColor(Color.WHITE);
                 }
-
-                child.setEnabled(estado);
             }
         }
     }
@@ -231,6 +234,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         try{
             int idFicha;
             String letra, puntos;
+            StatusHelper.fichas_todas.clear();
 
             for(int i = 0; i < numFichas; i++){
 
@@ -244,9 +248,12 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
 
                 //Se pinta y setea la letra y su respectivo puntaje en cada ficha
                 rlFicha.getChildAt(0).setTag(letra);
-                ((TextView)rlFicha.getChildAt(1)).setText(letra);
+
                 if(letra.equals("NH"))
                     ((TextView)rlFicha.getChildAt(1)).setText("Ñ");
+                else
+                    ((TextView)rlFicha.getChildAt(1)).setText(letra);
+
                 ((TextView)rlFicha.getChildAt(2)).setText(puntos);
 
                 //Se hace visible la ficha y se le asigna el método onLongClick
@@ -257,6 +264,7 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
             }
         }catch(JSONException e) {
 
+            Log.e(e.getMessage(),"");
         }
     }
 
@@ -440,11 +448,14 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
 
     public void posicionFicha(){
 
-        View v = StatusHelper.fichas_movidas.peek();
-        if(StatusHelper.posicion_valida)
-            v.setVisibility(View.INVISIBLE);
-        else {
-            StatusHelper.fichas_movidas.pop();
+        if(!StatusHelper.fichas_movidas.empty()){
+
+            View v = StatusHelper.fichas_movidas.peek();
+            if(StatusHelper.posicion_valida)
+                v.setVisibility(View.INVISIBLE);
+            else {
+                StatusHelper.fichas_movidas.pop();
+            }
         }
     }
 
@@ -551,22 +562,34 @@ public class JuegoActivity extends Activity implements View.OnLongClickListener 
         });
     }
 
-    @Override
-    protected void onDestroy() {
+    public void reproducirSonido(View v){
 
-        /*ConnectionHelper.webAppSession.sendMessage(JsonHelper.salir(), new ResponseListener<Object>() {
+        ConnectionHelper.webAppSession.sendMessage(JsonHelper.reproducirSonido(), new ResponseListener<Object>() {
+
             @Override
             public void onError(ServiceCommandError error) {
             }
 
             @Override
             public void onSuccess(Object object) {
-            }
-        });*/
 
+                /*if(findViewById(R.id.btnJugar).isEnabled())
+                    findViewById(R.id.btnJugar).setEnabled(false);
+                else
+                    findViewById(R.id.btnJugar).setEnabled(true);*/
+
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        Log.e("", "juegoooo");
         ConnectionHelper.desaplgListener.setJuegoActivity(null);
-        System.gc();
         super.onDestroy();
+        StatusHelper.unbindDrawables(findViewById(R.id.layoutJuego));
+        System.gc();
     }
 
     @Override

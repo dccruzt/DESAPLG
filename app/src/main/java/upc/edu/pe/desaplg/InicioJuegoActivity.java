@@ -3,6 +3,7 @@ package upc.edu.pe.desaplg;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +41,9 @@ public class InicioJuegoActivity extends Activity {
 
         DesaplgTextView lblInicio = (DesaplgTextView)findViewById(R.id.lblInicio);
         lblInicio.setText(StatusHelper.nombreJugador + getResources().getString(R.string.inicio));
+
+        MediaPlayer mp = MediaPlayer.create(InicioJuegoActivity.this, R.raw.conectado);
+        mp.start();
     }
 
     public void ActivarBotonIniciar(){
@@ -48,9 +52,7 @@ public class InicioJuegoActivity extends Activity {
     }
 
     public void iniciarJuego(View v){
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, "Conectando", 2);
-        toast.show();
+
         ConnectionHelper.webAppSession.sendMessage(JsonHelper.EmpezarJuego(), new ResponseListener<Object>() {
             @Override
             public void onError(ServiceCommandError error) {
@@ -59,9 +61,6 @@ public class InicioJuegoActivity extends Activity {
 
             @Override
             public void onSuccess(Object object) {
-                Context context = getApplicationContext();
-                Toast toast2 = Toast.makeText(context, "Mostrando Tablero", 2);
-                toast2.show();
             }
         });
     }
@@ -69,12 +68,13 @@ public class InicioJuegoActivity extends Activity {
     public void CargarFichas(){
         Intent i = new Intent(InicioJuegoActivity.this, JuegoActivity.class);
         startActivity(i);
+        finish();
     }
 
     @Override
     protected void onDestroy() {
 
-        ConnectionHelper.webAppSession.sendMessage(JsonHelper.salir(), new ResponseListener<Object>() {
+        /*ConnectionHelper.webAppSession.sendMessage(JsonHelper.salir(), new ResponseListener<Object>() {
             @Override
             public void onError(ServiceCommandError error) {
             }
@@ -82,11 +82,13 @@ public class InicioJuegoActivity extends Activity {
             @Override
             public void onSuccess(Object object) {
             }
-        });
+        });*/
 
+        Log.e("", "inicioJuegooooo");
         ConnectionHelper.desaplgListener.setInicioJuegoActivity(null);
-        System.gc();
         super.onDestroy();
+        StatusHelper.unbindDrawables(findViewById(R.id.layoutInicioJuego));
+        System.gc();
     }
 
     @Override
