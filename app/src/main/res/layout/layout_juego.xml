@@ -62,6 +62,7 @@
                             android:layout_width="@dimen/juego_ficha_ancho"
                             android:layout_height="@dimen/juego_ficha_alto"
                             android:layout_marginRight="@dimen/juego_ficha_marginRight"
+                            style="@style/Widget.AppCompat.Button.Borderless"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
@@ -94,6 +95,7 @@
                             android:layout_width="@dimen/juego_ficha_ancho"
                             android:layout_height="@dimen/juego_ficha_alto"
                             android:layout_marginRight="@dimen/juego_ficha_marginRight"
+                            style="@style/Widget.AppCompat.Button.Borderless"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
@@ -126,6 +128,7 @@
                             android:layout_width="@dimen/juego_ficha_ancho"
                             android:layout_height="@dimen/juego_ficha_alto"
                             android:layout_marginRight="@dimen/juego_ficha_marginRight"
+                            style="@style/Widget.AppCompat.Button.Borderless"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
@@ -158,6 +161,7 @@
                             android:layout_height="@dimen/juego_ficha_alto"
                             android:layout_width="@dimen/juego_ficha_ancho"
                             android:layout_marginRight="@dimen/juego_ficha_marginRight"
+                            style="@style/Widget.AppCompat.Button.Borderless"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
@@ -199,6 +203,7 @@
                             android:layout_width="@dimen/juego_ficha_ancho"
                             android:layout_height="@dimen/juego_ficha_alto"
                             android:layout_marginRight="@dimen/juego_ficha_marginRight"
+                            style="@style/Widget.AppCompat.Button.Borderless"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
@@ -231,6 +236,7 @@
                             android:layout_width="@dimen/juego_ficha_ancho"
                             android:layout_height="@dimen/juego_ficha_alto"
                             android:layout_marginRight="@dimen/juego_ficha_marginRight"
+                            style="@style/Widget.AppCompat.Button.Borderless"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
@@ -263,6 +269,7 @@
                             android:layout_width="@dimen/juego_ficha_ancho"
                             android:layout_height="@dimen/juego_ficha_alto"
                             android:layout_marginRight="@dimen/juego_ficha_marginRight"
+                            style="@style/Widget.AppCompat.Button.Borderless"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
@@ -295,6 +302,7 @@
                             android:layout_width="@dimen/juego_ficha_ancho"
                             android:layout_height="@dimen/juego_ficha_alto"
                             android:layout_marginRight="@dimen/juego_ficha_marginRight"
+                            style="@style/Widget.AppCompat.Button.Borderless"
                             android:background="@drawable/letra" />
 
                         <upc.edu.pe.desaplg.view.DesaplgTextView
